@@ -25,7 +25,7 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
-  config.fail_fast = true
+  # config.fail_fast = true
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.include Features, type: :feature
   config.infer_base_class_for_anonymous_controllers = false
