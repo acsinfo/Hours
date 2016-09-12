@@ -14,8 +14,6 @@ class Report
         category
         client
         hours
-        billable
-        billed
         description)
     end
     header.map do |headers|
