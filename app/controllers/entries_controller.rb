@@ -1,8 +1,6 @@
 class EntriesController < ApplicationController
   include CSVDownload
 
-  DATE_FORMAT = "%d/%m/%Y".freeze
-
   def index
     @user = User.find_by_slug(params[:user_id])
     @hours_entries = @user.hours.by_date.page(params[:hours_pages]).per(20)
@@ -37,6 +35,6 @@ class EntriesController < ApplicationController
   end
 
   def parsed_date(entry_type)
-    Date.strptime(params[entry_type][:date], DATE_FORMAT)
+    Time.strptime(params[entry_type][:date], Time::DATE_FORMATS[:simple_datetime])
   end
 end

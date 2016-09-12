@@ -4,9 +4,9 @@ describe ReportEntry do
   subject(:report_entry) { ReportEntry.new(hour) }
   subject(:report_entry2) { ReportEntry.new(mileage) }
 
-  it "#date localized" do
-    expect(report_entry.date).to eq(I18n.l hour.date)
-    expect(report_entry2.date).to eq(I18n.l mileage.date)
+  it "#datetime" do
+    expect(report_entry.date).to eq(hour.date.to_s(:simple_datetime))
+    expect(report_entry2.date).to eq(mileage.date.to_s(:simple_datetime))
   end
 
   it "#user" do

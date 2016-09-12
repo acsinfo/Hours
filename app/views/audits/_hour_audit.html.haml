@@ -3,7 +3,7 @@
     %p.entry-title Hours Entry
   %div
     %span= t("audits.date")
-    %span= @history.auditable.date
+    %span= @history.auditable.date.to_s(:simple_datetime)
   %div
     %span= t("audits.user")
     %span= @history.auditable.user.name

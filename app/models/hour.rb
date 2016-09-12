@@ -7,7 +7,7 @@
 #  category_id :integer          not null
 #  user_id     :integer          not null
 #  value       :integer          not null
-#  date        :date             not null
+#  date        :datetime         not null
 #  created_at  :datetime
 #  updated_at  :datetime
 #  description :string

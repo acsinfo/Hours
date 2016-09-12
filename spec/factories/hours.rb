@@ -20,7 +20,7 @@ FactoryGirl.define do
     category
     description ""
     value 1
-    date "2014-02-26"
+    date "2014-02-26 08:00"
     user
 
     factory :hour_with_client do
