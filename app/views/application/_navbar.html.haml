@@ -25,12 +25,5 @@
                 %li= link_to t("navbar.dropdown.edit_user"), edit_user_path
                 - if current_user_owner?
                   %li= link_to t("titles.accounts.edit"), edit_account_path
-                - if Hours.helpful_enabled?
-                  %li
-                    .modal
-                      %label{:for => "modal-1"}
-                        %a Help me!
-                      %input#modal-1.modal-state{:type => "checkbox"}/
-                      = render 'modal'
                 %li.devider
                 %li= link_to t("sign_out"), destroy_user_session_path
