@@ -25,21 +25,21 @@ feature "User views Entry Audit Trail" do
     expect(last_change.find(".changes")).to have_content changed_value(100, 200)
   end
 
-  scenario "links to mileages audit path" do
-    update_mileages_entry
+  # scenario "links to mileages audit path" do
+  #   update_mileages_entry
 
-    visit user_entries_url(user, subdomain: subdomain)
-    last_entry = page.find(".entries-table .info-row:first-child")
-    expect(last_entry).to have_content("changes")
-  end
+  #   visit user_entries_url(user, subdomain: subdomain)
+  #   last_entry = page.find(".entries-table .info-row:first-child")
+  #   expect(last_entry).to have_content("changes")
+  # end
 
-  scenario "displays mileages audit trail" do
-    update_mileages_entry
+  # scenario "displays mileages audit trail" do
+  #   update_mileages_entry
 
-    visit mileage_audits_url(mileages_entry, subdomain: subdomain)
-    last_change = page.find(".audit:last-child")
-    expect(last_change.find(".changes")).to have_content changed_value(300, 400)
-  end
+  #   visit mileage_audits_url(mileages_entry, subdomain: subdomain)
+  #   last_change = page.find(".audit:last-child")
+  #   expect(last_change.find(".changes")).to have_content changed_value(300, 400)
+  # end
 
   private
 
@@ -56,9 +56,9 @@ feature "User views Entry Audit Trail" do
     end
   end
 
-  def update_mileages_entry
-    Audited.audit_class.as_user(user) do
-      mileages_entry.update_attribute(:value, 400)
-    end
-  end
+  # def update_mileages_entry
+  #   Audited.audit_class.as_user(user) do
+  #     mileages_entry.update_attribute(:value, 400)
+  #   end
+  # end
 end
