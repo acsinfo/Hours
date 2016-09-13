@@ -27,29 +27,6 @@ feature "User manages projects" do
     expect(page).to have_content("can't be blank")
   end
 
-  # scenario "creates a billable project" do
-  #   client = create(:client)
-  #   click_link I18n.t("titles.projects.new")
-
-  #   fill_in "Name", with: "My new project"
-  #   select(client.name, from: "project_client_id")
-  #   check "Billable"
-  #   click_button I18n.t("helpers.submit.project.create")
-  #   expect(page).to have_content(I18n.t("project_created"))
-  #   expect(Project.last.billable).to be(true)
-  # end
-
-  # scenario "edit a none billable project to a billable project" do
-  #   client = create(:client)
-  #   project = create(:project)
-  #   visit edit_project_url(project, subdomain: subdomain)
-
-  #   select(client.name, from: "project_client_id")
-  #   check "Billable"
-  #   click_button I18n.t("helpers.submit.project.update")
-  #   expect(project.reload.billable).to be(true)
-  # end
-
   scenario "go to the edit page of a project" do
     project = create(:project)
     visit project_url(project, subdomain: subdomain)
