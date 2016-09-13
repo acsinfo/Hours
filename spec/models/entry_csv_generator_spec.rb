@@ -16,11 +16,4 @@ describe EntryCSVGenerator do
     expect(csv.lines.second.split(",").count).to eq(1)
     expect(csv.lines.last.split(",").count).to eq(7)
   end
-
-  it "localizes the separator" do
-    I18n.locale = :nl
-    expect(generator.options).to include(col_sep: ";")
-    I18n.locale = I18n.default_locale
-    expect(generator.options).to include(col_sep: ",")
-  end
 end
