@@ -5,7 +5,7 @@ describe EntryCSVGenerator do
   let(:second_entry) { build_stubbed(:hour) }
 
   let(:generator) do
-    EntryCSVGenerator.new([first_entry, second_entry], [])
+    EntryCSVGenerator.new([first_entry, second_entry])
   end
 
   it "generates csv" do

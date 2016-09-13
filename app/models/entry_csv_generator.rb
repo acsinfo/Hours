@@ -1,13 +1,12 @@
 require "csv"
 
 class EntryCSVGenerator
-  def self.generate(hours_entries, mileages_entries)
-    new(hours_entries, mileages_entries).generate
+  def self.generate(hours_entries)
+    new(hours_entries).generate
   end
 
-  def initialize(hours_entries, mileages_entries)
+  def initialize(hours_entries)
     @hours_report = Report.new(hours_entries)
-    @mileages_report = Report.new(mileages_entries)
   end
 
   def generate

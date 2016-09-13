@@ -11,7 +11,7 @@ describe BillableList do
   let!(:entry2) { create(:hour, project: project2) }
   let!(:entry3) { create(:hour, project: project3) }
 
-  let(:billable_list) { BillableList.new(Hour.billable, []) }
+  let(:billable_list) { BillableList.new(Hour.billable) }
 
   it "has a list of clients" do
     expect(billable_list.clients.count).to eq(2)
