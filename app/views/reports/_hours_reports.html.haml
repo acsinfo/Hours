@@ -15,7 +15,7 @@
         %tbody
         - @hours_entries.each do |entry|
           %tr.info-row
-            %td= entry.date.to_s(:simple_datetime)
+            %td= I18n.l(entry.date)
             %td= link_to entry.user.full_name, entry.user
             %td= link_to entry.project.name, entry.project
             %td.hide-for-mobile= entry.category.name

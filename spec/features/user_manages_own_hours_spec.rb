@@ -47,8 +47,7 @@ feature "User manages their own hours" do
       "hour_category_id",
       selected: entry.category.name)
     expect(find_field("hour_value").value).to eq(entry.value.to_s)
-    expect(find_field("hour_date").
-      value).to eq(entry.date.to_s(:simple_datetime))
+    expect(find_field("hour_date").value).to eq(I18n.l(entry.date))
     expect(find_field("hour_description").value).to eq(entry.description)
   end
 
@@ -64,7 +63,7 @@ feature "User manages their own hours" do
     new_project = create(:project)
     new_category = create(:category)
     new_value = rand(1..100)
-    new_date = DateTime.current.to_s(:simple_datetime)
+    new_date = I18n.l(DateTime.current)
     new_description = "did some awesome #uxdesign"
     edit_entry(new_project, new_category, new_value, new_date, new_description)
 
@@ -100,7 +99,7 @@ feature "User manages their own hours" do
     new_project = create(:project)
     new_category = create(:category)
     new_value = "these are not valid hours"
-    new_date = DateTime.current.to_s(:simple_datetime)
+    new_date = I18n.l(DateTime.current)
     new_description = "did some awesome #uxdesign"
 
     edit_entry(new_project, new_category, new_value, new_date, new_description)

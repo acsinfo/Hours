@@ -1,1 +1,0 @@
-Time::DATE_FORMATS[:simple_datetime] = "%d/%m/%y %H:%M"

@@ -4,7 +4,7 @@ class ReportEntry < SimpleDelegator
   end
 
   def date
-    __getobj__.date.to_s(:simple_datetime)
+    I18n.l __getobj__.date
   end
 
   def project

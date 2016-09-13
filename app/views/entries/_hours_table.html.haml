@@ -14,7 +14,7 @@
       %tr.info-row
         %td.date
           %div.weekday= t("weekdays." + entry.date.strftime('%A').downcase)
-          = entry.date.to_s(:simple_datetime)
+          = I18n.l(entry.date)
         %td.project= link_to entry.project.name, entry.project
         %td.hours.center= entry.value
         %td.category.hide-for-mobile

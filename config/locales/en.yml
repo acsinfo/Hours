@@ -286,3 +286,6 @@ en:
     slogan: Time registration that doesn't suck.
     free_trial_html: Free<br/> triall
     prices: Prices
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M"
