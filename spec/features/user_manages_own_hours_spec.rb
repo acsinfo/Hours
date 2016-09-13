@@ -47,7 +47,7 @@ feature "User manages their own hours" do
       "hour_category_id",
       selected: entry.category.name)
     expect(find_field("hour_value").value).to eq(entry.value.to_s)
-    expect(find_field("hour_date").value).to eq(I18n.l(entry.date))
+    expect(find_field("hour_starting_time").value).to eq(I18n.l(entry.starting_time))
     expect(find_field("hour_description").value).to eq(entry.description)
   end
 
@@ -63,16 +63,16 @@ feature "User manages their own hours" do
     new_project = create(:project)
     new_category = create(:category)
     new_value = rand(1..100)
-    new_date = I18n.l(DateTime.current)
+    new_starting_time = I18n.l(DateTime.current)
     new_description = "did some awesome #uxdesign"
-    edit_entry(new_project, new_category, new_value, new_date, new_description)
+    edit_entry(new_project, new_category, new_value, new_starting_time, new_description)
 
     click_link I18n.t("entries.index.edit")
 
     expect(page).to have_select("hour_project_id", selected: new_project.name)
     expect(page).to have_select("hour_category_id", selected: new_category.name)
     expect(find_field("hour_value").value).to eq(new_value.to_s)
-    expect(find_field("hour_date").value).to eq(new_date.to_s)
+    expect(find_field("hour_starting_time").value).to eq(new_starting_time.to_s)
     expect(find_field("hour_description").value).to eq(new_description)
   end
 
@@ -99,10 +99,10 @@ feature "User manages their own hours" do
     new_project = create(:project)
     new_category = create(:category)
     new_value = "these are not valid hours"
-    new_date = I18n.l(DateTime.current)
+    new_starting_time = I18n.l(DateTime.current)
     new_description = "did some awesome #uxdesign"
 
-    edit_entry(new_project, new_category, new_value, new_date, new_description)
+    edit_entry(new_project, new_category, new_value, new_starting_time, new_description)
 
     expect(page).to have_content(I18n.t("entry_failed"))
   end
@@ -110,7 +110,7 @@ feature "User manages their own hours" do
   private
 
   def edit_entry(new_project, new_category, new_value,
-                  new_date, new_description)
+                  new_starting_time, new_description)
     create(:hour, user: user)
     click_link I18n.t("navbar.entries")
     click_link I18n.t("entries.index.edit")
@@ -118,7 +118,7 @@ feature "User manages their own hours" do
     select(new_project.name, from: "hour_project_id")
     select(new_category.name, from: "hour_category_id")
     fill_in "hour_value", with: new_value
-    fill_in "hour_date", with: new_date
+    fill_in "hour_starting_time", with: new_starting_time
     fill_in "hour_description", with: new_description
 
     click_button I18n.t("helpers.submit.update")

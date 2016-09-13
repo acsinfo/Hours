@@ -43,11 +43,11 @@ class EntryQuery
     end
 
     def from_date(param)
-      where("#{Scopes.get}.date >= ?", Date.parse(param.to_s))
+      where("#{Scopes.get}.starting_time >= ?", Date.parse(param.to_s))
     end
 
     def to_date(param)
-      where("#{Scopes.get}.date <= ?", Date.parse(param.to_s))
+      where("#{Scopes.get}.starting_time <= ?", Date.parse(param.to_s))
     end
 
     def archived(param)

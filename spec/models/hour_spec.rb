@@ -1,26 +1,10 @@
-# == Schema Information
-#
-# Table name: hours
-#
-#  id          :integer          not null, primary key
-#  project_id  :integer          not null
-#  category_id :integer          not null
-#  user_id     :integer          not null
-#  value       :integer          not null
-#  date        :date             not null
-#  created_at  :datetime
-#  updated_at  :datetime
-#  description :string
-#  billed      :boolean          default("false")
-#
-
 describe Hour do
   describe "validations" do
     it { should validate_presence_of :user }
     it { should validate_presence_of :project }
     it { should validate_presence_of :category }
     it { should validate_presence_of :value }
-    it { should validate_presence_of :date }
+    it { should validate_presence_of :starting_time }
     it { should validate_numericality_of(:value).is_greater_than(0) }
     it { should validate_numericality_of(:value).only_integer }
   end
@@ -90,13 +74,13 @@ describe Hour do
     end
   end
 
-  describe "#by_date" do
-    it "orders the entries by date (latest first)" do
-      create(:hour, date: Date.new(2014, 01, 01))
-      latest = create(:hour, date: Date.new(2014, 03, 03))
-      create(:hour, date: Date.new(2014, 02, 02))
+  describe "#by_starting_time" do
+    it "orders the entries by starting_time (latest first)" do
+      create(:hour, starting_time: Time.new(2014, 01, 01, 8, 0, 0))
+      latest = create(:hour, starting_time: Time.new(2014, 02, 02, 12, 0, 0))
+      create(:hour, starting_time: Time.new(2014, 02, 02, 8, 0, 0))
 
-      expect(Hour.by_date.first).to eq(latest)
+      expect(Hour.by_starting_time.first).to eq(latest)
     end
   end
 
@@ -109,11 +93,11 @@ describe Hour do
   end
 
   describe "#query" do
-    let(:entry_1) { create(:hour, date: 5.days.ago) }
-    let(:entry_2) { create(:hour, date: 4.days.ago) }
-    let(:entry_3) { create(:hour, date: 3.days.ago) }
-    let(:entry_4) { create(:hour, date: 2.days.ago) }
-    let(:entry_5) { create(:hour, date: 1.day.ago) }
+    let(:entry_1) { create(:hour, starting_time: 5.days.ago) }
+    let(:entry_2) { create(:hour, starting_time: 4.days.ago) }
+    let(:entry_3) { create(:hour, starting_time: 3.days.ago) }
+    let(:entry_4) { create(:hour, starting_time: 2.days.ago) }
+    let(:entry_5) { create(:hour, starting_time: 1.day.ago) }
 
     before(:each) do
       Timecop.freeze DateTime.new(2015, 4, 20)

@@ -3,7 +3,7 @@ class Entry < ActiveRecord::Base
 
   include Twitter::Extractor
 
-  validates :user, :project, :date, presence: true
+  validates :user, :project, :starting_time, presence: true
   validates :value, presence: true, numericality: { greater_than: 0,
                                                     only_integer: true }
 

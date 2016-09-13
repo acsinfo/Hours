@@ -2,8 +2,8 @@ describe ReportEntry do
   let(:hour) { create(:hour_with_client) }
   subject(:report_entry) { ReportEntry.new(hour) }
 
-  it "#date localized" do
-    expect(report_entry.date).to eq(I18n.l hour.date)
+  it "#starting_time localized" do
+    expect(report_entry.starting_time).to eq(I18n.l hour.starting_time)
   end
 
   it "#user" do

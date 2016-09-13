@@ -11,7 +11,7 @@ describe EntryCSVGenerator do
   it "generates csv" do
     csv = generator.generate
     expect(csv).to include(
-      "Date,User,Project,Category,Client,Hours,Description")
+      "Starting time,User,Project,Category,Client,Hours,Description")
     expect(csv.lines.count).to eq(5)
     expect(csv.lines.second.split(",").count).to eq(1)
     expect(csv.lines.last.split(",").count).to eq(7)

@@ -19,6 +19,6 @@ class TimeSeries::YearlyTimeSeries < TimeSeries
   end
 
   def hours_per_week(week)
-    @resource.hours.where(date: ((week - 1.week)..week)).sum(:value)
+    @resource.hours.where(starting_time: ((week - 1.week)..week)).sum(:value)
   end
 end

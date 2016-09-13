@@ -8,7 +8,7 @@ class Report
       header = %w(date user project client mileages billable billed)
     else
       header = %w(
-        date
+        starting_time
         user
         project
         category

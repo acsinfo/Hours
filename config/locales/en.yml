@@ -12,6 +12,7 @@ en:
     nothing: nothing
     title: Audit Log
     date: "Date:"
+    stating_time: "Starting time:"
     action: "Action:"
     user: "User:"
     project: "Project:"
@@ -205,7 +206,7 @@ en:
     update_button: Update
   report:
     headers:
-      date: Date
+      starting_time: Starting time
       user: User
       project: Project
       category: Category

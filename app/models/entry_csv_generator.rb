@@ -27,10 +27,10 @@ class EntryCSVGenerator
   end
 
   def get_fields(entry, entry_type)
-    fields = [entry.date, entry.user, entry.project]
-    fields.push [entry.category] # if entry_type == "hours"
+    fields = [entry.starting_time, entry.user, entry.project]
+    fields.push [entry.category]
     fields.push [entry.client, entry.value]
-    fields.push [entry.description] # if entry_type == "hours"
+    fields.push [entry.description]
     fields.flatten
   end
 

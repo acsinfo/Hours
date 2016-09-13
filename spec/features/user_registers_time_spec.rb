@@ -54,6 +54,6 @@ feature "User registers time" do
     select "Conversations", from: "Project"
     select "Design", from: "Category"
     fill_in "hour_value", with: hours
-    fill_in "hour_date", with: "01/02/2014 08:00"
+    fill_in "hour_starting_time", with: "01/02/2014 08:00"
   end
 end

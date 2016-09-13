@@ -3,8 +3,8 @@ class ReportEntry < SimpleDelegator
     __getobj__.user.full_name
   end
 
-  def date
-    I18n.l __getobj__.date
+  def starting_time
+    I18n.l __getobj__.starting_time
   end
 
   def project
