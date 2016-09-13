@@ -35,6 +35,6 @@ class EntriesController < ApplicationController
   end
 
   def parsed_date(entry_type)
-    Time.strptime(params[entry_type][:date], "%d/%m/%Y %H:%M")
+    Time.strptime(params[entry_type][:date], I18n.t('time.formats.default'))
   end
 end
