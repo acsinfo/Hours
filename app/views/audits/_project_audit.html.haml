@@ -11,12 +11,6 @@
     %span= t("audits.description")
     %span= @history.auditable.description
   %div
-    %span= t("audits.budget")
-    %span= @history.auditable.budget
-  %div
-    %span= t("audits.billable")
-    %span= t("boolean.#{@history.auditable.billable}")
-  %div
     %span= t("audits.archived")
     %span= t("boolean.#{@history.auditable.archived}")
 = render partial: "audits"

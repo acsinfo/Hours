@@ -15,9 +15,6 @@ class EntryCSVGenerator
       csv << []
       csv << [I18n.translate("report.headers.hours")]
       fill_fields("hours", csv)
-      csv << []
-      csv << [I18n.translate("report.headers.mileages")]
-      fill_fields("mileages", csv)
     end
   end
 
@@ -31,9 +28,9 @@ class EntryCSVGenerator
 
   def get_fields(entry, entry_type)
     fields = [entry.date, entry.user, entry.project]
-    fields.push [entry.category] if entry_type == "hours"
-    fields.push [entry.client, entry.value, entry.billable, entry.billed]
-    fields.push [entry.description] if entry_type == "hours"
+    fields.push [entry.category] # if entry_type == "hours"
+    fields.push [entry.client, entry.value]
+    fields.push [entry.description] # if entry_type == "hours"
     fields.flatten
   end
 

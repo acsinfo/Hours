@@ -52,14 +52,6 @@ feature "User manages their own hours" do
     expect(find_field("hour_description").value).to eq(entry.description)
   end
 
-  scenario "deletes an entry" do
-    create(:hour, user: user)
-    click_link I18n.t("navbar.entries")
-
-    click_link I18n.t("entries.index.delete")
-    expect(page).to have_content(I18n.t("entry_deleted.hours"))
-  end
-
   scenario "edits an entry" do
     new_project = create(:project)
     new_category = create(:category)
@@ -83,15 +75,6 @@ feature "User manages their own hours" do
 
     visit user_entries_url(other_user, subdomain: subdomain)
     expect(page).to_not have_content(I18n.t("entries.index.edit"))
-  end
-
-  scenario "can not delete someone elses entries" do
-    other_user = create(:user)
-
-    create(:hour, user: other_user)
-
-    visit user_entries_url(other_user, subdomain: subdomain)
-    expect(page).to_not have_content(I18n.t("entries.index.delete"))
   end
 
   let(:new_value) { "Not a number" }
