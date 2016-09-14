@@ -4,7 +4,6 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.unarchived.by_last_updated.page(params[:page]).per(7)
     @hours_entry = Hour.new
-    @mileages_entry = Mileage.new
     @activities = Hour.by_last_created_at.limit(30)
   end
 
@@ -40,7 +39,7 @@ class ProjectsController < ApplicationController
   private
 
   def entry_type
-    request.fullpath == mileage_entry_path ? "mileages" : "hours"
+    "hours"
   end
 
   def resource

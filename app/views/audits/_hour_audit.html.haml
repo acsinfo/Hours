@@ -2,8 +2,8 @@
   %div.title-container
     %p.entry-title Hours Entry
   %div
-    %span= t("audits.date")
-    %span= @history.auditable.date
+    %span= t("audits.starting_time")
+    %span= I18n.l(@history.auditable.starting_time)
   %div
     %span= t("audits.user")
     %span= @history.auditable.user.name

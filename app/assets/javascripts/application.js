@@ -45,7 +45,6 @@ $(document).ready(function() {
 
   $('#hour_project_id').select2();
   $('#hour_category_id').select2();
-  $('#mileage_project_id').select2();
   $('#project_client_id').select2();
 
   if ($('body').hasClass('projects-index')) {

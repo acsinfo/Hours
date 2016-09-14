@@ -43,7 +43,7 @@ module Hours
     # Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding
     # time zone names. Default is UTC.
-    # config.time_zone = 'Central Time (US & Canada)'
+    config.time_zone = 'Rome'
 
     # Don't force available locales, i.e. in case an unsupported locale is passed
     # just silently switch to the default language (:en) instead of throwing

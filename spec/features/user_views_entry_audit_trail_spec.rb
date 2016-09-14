@@ -2,7 +2,6 @@ feature "User views Entry Audit Trail" do
   let(:subdomain) { generate(:subdomain) }
   let(:user) { build(:user) }
   let(:hours_entry) { create(:hour, user: user, value: 100) }
-  let(:mileages_entry) { create(:mileage, user: user, value: 300) }
 
   before(:each) do
     create(:account_with_schema, subdomain: subdomain, owner: user)

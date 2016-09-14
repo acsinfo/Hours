@@ -2,16 +2,16 @@
 #
 # Table name: hours
 #
-#  id          :integer          not null, primary key
-#  project_id  :integer          not null
-#  category_id :integer          not null
-#  user_id     :integer          not null
-#  value       :integer          not null
-#  date        :date             not null
-#  created_at  :datetime
-#  updated_at  :datetime
-#  description :string
-#  billed      :boolean          default("false")
+#  id             :integer          not null, primary key
+#  project_id     :integer          not null
+#  category_id    :integer          not null
+#  user_id        :integer          not null
+#  value          :integer          not null
+#  starting_time  :datetime         not null
+#  created_at     :datetime
+#  updated_at     :datetime
+#  description    :string
+#  billed         :boolean          default("false")
 #
 
 class Hour < Entry
@@ -27,7 +27,7 @@ class Hour < Entry
   accepts_nested_attributes_for :taggings
 
   scope :by_last_created_at, -> { order("created_at DESC") }
-  scope :by_date, -> { order("date DESC") }
+  scope :by_starting_time, -> { order("starting_time DESC") }
   scope :billable, -> { where("billable").joins(:project) }
   scope :with_clients, -> {
     where.not("projects.client_id" => nil).joins(:project)
@@ -40,7 +40,7 @@ class Hour < Entry
   end
 
   def self.query(params, includes = nil)
-    EntryQuery.new(self.includes(includes).by_date, params, "hours").filter
+    EntryQuery.new(self.includes(includes).by_starting_time, params, "hours").filter
   end
 
   private

@@ -1,13 +1,12 @@
 require "csv"
 
 class EntryCSVGenerator
-  def self.generate(hours_entries, mileages_entries)
-    new(hours_entries, mileages_entries).generate
+  def self.generate(hours_entries)
+    new(hours_entries).generate
   end
 
-  def initialize(hours_entries, mileages_entries)
+  def initialize(hours_entries)
     @hours_report = Report.new(hours_entries)
-    @mileages_report = Report.new(mileages_entries)
   end
 
   def generate
@@ -27,10 +26,10 @@ class EntryCSVGenerator
   end
 
   def get_fields(entry, entry_type)
-    fields = [entry.date, entry.user, entry.project]
-    fields.push [entry.category] # if entry_type == "hours"
+    fields = [entry.starting_time, entry.user, entry.project]
+    fields.push [entry.category]
     fields.push [entry.client, entry.value]
-    fields.push [entry.description] # if entry_type == "hours"
+    fields.push [entry.description]
     fields.flatten
   end
 

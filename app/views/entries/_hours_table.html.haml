@@ -1,6 +1,6 @@
 %thead
   %tr
-    %th= t("entries.index.date")
+    %th= t("entries.index.starting_time")
     %th= t("entries.index.project")
     %th.center= t("entries.index.hours")
     %th.hide-for-mobile= t("entries.index.category")
@@ -12,9 +12,9 @@
   - @hours_entries.each do |entry|
     - localized_cache cache_key_for_current_user(entry) do
       %tr.info-row
-        %td.date
-          %div.weekday= t("weekdays." + entry.date.strftime('%A').downcase)
-          = I18n.l (entry.date)
+        %td.starting_time
+          %div.weekday= t("weekdays." + entry.starting_time.strftime('%A').downcase)
+          = I18n.l(entry.starting_time)
         %td.project= link_to entry.project.name, entry.project
         %td.hours.center= entry.value
         %td.category.hide-for-mobile
