@@ -12,7 +12,7 @@ en:
     nothing: nothing
     title: Audit Log
     date: "Date:"
-    stating_time: "Starting time:"
+    starting_time: "Starting time:"
     action: "Action:"
     user: "User:"
     project: "Project:"
@@ -115,7 +115,7 @@ en:
     download_csv: Download all entries as CSV
     index:
       category: Category
-      date: Date
+      starting_time: Ora di inizio
       delete: delete
       description: 'Description or #hashtags'
       edit: edit
@@ -124,7 +124,7 @@ en:
       new: New Entry
       project: Project
       user_entries: "%{user}'s entries"
-      changes: changes
+      changes: audit
   entry_activity_html:
     one: "%{user} spent one hour doing %{category} on %{project}"
     other: "%{user} spent %{count} hours doing %{category} on %{project}"
@@ -134,10 +134,6 @@ en:
     hours: Hours Entry successfully deleted
   entry_failed: Something went wrong saving your entry
   entry_saved: Entry successfully saved
-  helpful:
-    heading: Need help?
-    placeholder: Write your question here...
-    tagline: Have a question about Hours? Need some help getting started?
   helpers:
     submit:
       create: Create Entry
@@ -277,7 +273,7 @@ en:
     not_archived: Not Archived
   pages:
     slogan: Time registration that doesn't suck.
-    free_trial_html: Free<br/> triall
+    free_trial_html: Free<br/> trial
     prices: Prices
   time:
     formats:
