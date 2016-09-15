@@ -71,6 +71,15 @@ it:
           attributes:
             name:
               blank: non può essere vuoto
+        hour:
+          attributes:
+            category:
+              blank: non può essere vuoto
+            project:
+              blank: non può essere vuoto
+            value:
+              blank: non può essere vuoto
+              not_a_number: deve essere un numero
         project:
           attributes:
             name:
@@ -184,8 +193,9 @@ it:
       description: 'Descrizione o #hashtags'
       edit: modifica
       edit_hours_entry: Modifica registrazione
+      ending_time: Ora di fine
       hours: Ore
-      new: Nuova registrazione
+      new: Registra il tuo tempo
       project: Progetto
       user_entries: "Registrazioni di %{user}"
       changes: audit

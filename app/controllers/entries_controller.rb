@@ -31,7 +31,7 @@ class EntriesController < ApplicationController
     params[:controller]
   end
 
-  def parsed_time(entry_type)
-    Time.strptime(params[entry_type][:starting_time], I18n.t('time.formats.default'))
+  def parsed_time(datetime)
+    Time.strptime(datetime, I18n.t('time.formats.default')) if datetime
   end
 end

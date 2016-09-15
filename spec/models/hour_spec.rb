@@ -92,6 +92,15 @@ describe Hour do
     expect(Hour.with_clients.count).to eq(1)
   end
 
+  it "#open_per_user" do
+    entry_1 = create(:hour, ending_time: 5.days.ago)
+    entry_2 = create(:hour)
+    user = entry_1.user
+    entry_3 = create(:hour, user: user)
+    
+    expect(Hour.open_per_user(user.id)).to eq([entry_3])
+  end
+
   describe "#query" do
     let(:entry_1) { create(:hour, starting_time: 5.days.ago) }
     let(:entry_2) { create(:hour, starting_time: 4.days.ago) }

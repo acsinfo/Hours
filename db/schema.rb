@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160913125527) do
+ActiveRecord::Schema.define(version: 20160915122011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20160913125527) do
     t.datetime "updated_at"
     t.string   "description"
     t.boolean  "billed",        default: false
+    t.datetime "ending_time"
   end
 
   add_index "hours", ["billed"], name: "index_hours_on_billed", using: :btree

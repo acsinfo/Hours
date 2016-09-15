@@ -31,7 +31,8 @@ class HoursController < EntriesController
 
   def entry_params
     params.require(:hour).
-      permit(:project_id, :category_id, :value, :description, :starting_time).
-      merge(starting_time: parsed_time(:hour))
+      permit(:project_id, :category_id, :value, :description, :starting_time, :ending_time).
+      merge(starting_time: parsed_time(params[:hour][:starting_time])).
+      merge(ending_time: parsed_time(params[:hour][:ending_time]))
   end
 end
