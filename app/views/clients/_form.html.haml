@@ -1,7 +1,7 @@
 = simple_form_for(@client) do |f|
   = f.error_notification
   .form-inputs
-    = f.input :name, required: true, autofocus: true
-    = f.input :description, required: false
-    = f.input :logo, as: :file
+    = f.input :name, required: true, autofocus: true, label: t("client.form.name")
+    = f.input :description, required: false, label: t("client.form.description")
+    = f.input :logo, as: :file, label: t("client.form.logo")
     = f.button :submit

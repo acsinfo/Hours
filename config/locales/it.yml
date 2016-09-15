@@ -63,6 +63,28 @@ it:
             subdomain:
               invalid_characters: contiene caratteri non validi
               restricted: il sottodominio fornito non può essere utilizzato
+        category:
+          attributes:
+            name:
+              blank: non può essere vuoto
+        client:
+          attributes:
+            name:
+              blank: non può essere vuoto
+        project:
+          attributes:
+            name:
+              blank: non può essere vuoto
+        user:
+          attributes:
+            current_password:
+              blank: non può essere vuota
+            email:
+              blank: non può essere vuota
+            first_name:
+              blank: non può essere vuoto
+            last_name:
+              blank: non può essere vuoto
   back: Indietro
   billables:
     billable_entries: Registrazioni fatturabili
@@ -82,6 +104,8 @@ it:
   budget_html: "<strong>%{budget_left}</strong> di <strong>%{budget}</strong> ore a budget"
   category:
     edit: modifica
+    form:
+      name: Nome
     remaining: Altro
   category_created: Categoria creata con successo
   category_updated: Categoria aggiornata con successo
@@ -94,12 +118,52 @@ it:
     hours_spent_per_user: Ore per utente
   client:
     edit: Modifica
+    form:
+      description: Descrizione
+      logo: Logo
+      name: Nome
   client_created: Cliente creato con successo
   client_updated: Cliente aggiornato con successo
   confirm: Sei sicuro?
   date:
     formats:
       default: "%d/%m/%Y"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: circa un'ora
+        other: circa %{count} ore
+      about_x_months:
+        one: circa un mese
+        other: circa %{count} mesi
+      about_x_years:
+        one: circa un anno
+        other: circa %{count} anni
+      almost_x_years:
+        one: circa 1 anno
+        other: circa %{count} anni
+      half_a_minute: mezzo minuto
+      less_than_x_minutes:
+        one: meno di un minuto
+        other: meno di %{count} minuti
+      less_than_x_seconds:
+        one: meno di un secondo
+        other: meno di %{count} secondi
+      over_x_years:
+        one: oltre un anno
+        other: oltre %{count} anni
+      x_days:
+        one: 1 giorno
+        other: "%{count} giorni"
+      x_minutes:
+        one: 1 minuto
+        other: "%{count} minuti"
+      x_months:
+        one: 1 mese
+        other: "%{count} mesi"
+      x_seconds:
+        one: 1 secondo
+        other: "%{count} secondi"
   email:
     confirmation:
       confirm_password: Conferma il mio account
@@ -133,6 +197,23 @@ it:
   entry_deleted:
     hours: Registrazione eliminata con successo
   entry_failed: Qualcosa è andato storto durante il salvataggio della tua registrazione
+  entry_filters:
+    title: Filtri
+    clients: Tutti i clienti
+    projects: Tutti i progetti
+    users: Tutti gli utenti
+    from_date_label: Da
+    to_date_label: A
+    billed_label: Fatturato o non
+    billed: Fatturato
+    billable: Fatturabile
+    not_billed: Non fatturato
+    not_billable: Non fatturabile
+    billed_empty: Fatturato o non
+    billable_empty: Fatturabile o non
+    archived_empty: Archiviato e non archiviato
+    archived: Archiviato
+    not_archived: Non archiviato
   entry_saved: Registrazione salvata con successo
   helpers:
     submit:
@@ -163,12 +244,23 @@ it:
     dropdown:
       edit_user: Modifica profilo
     entries: Le mie registrazioni
+  new_password: Nuova password
+  no_confirmation_info: Non hai ricevuto le istruzioni di conferma dell'email?
   no_hours_registered: Nessuno ha ancora lavorato su %{project}
+  no_unlock_info: Non hai ricevuto le istruzioni di sblocco?
+  pages:
+    slogan: Time tracking software
+    free_trial_html: Prova
+    prices: Prezzi
+  password_confirmation: Conferma la tua nuova password
+  password_forgotten: Hai dimenticato la password?
   project:
     errors:
       client_missing: Se il progetto è fatturabile, richiede un cliente
     form:
       client: Cliente
+      description: Descrizione
+      name: Nome
       no_client: Nessun cliente
     show:
       changes_link: modifiche
@@ -186,12 +278,18 @@ it:
   project_created: Progetto creato con successo
   project_updated: Progetto aggiornato con successo
   registration:
-    edit: Modifica %{resource_name}
+    current_password: Password corrente
+    edit: Modifica
+    email: Email
+    first_name: Nome
     gravatar_instructions_html: Aggiorna la tua immagine profilo su <a href="https://www.gravatar.com"
       target="_blank">Gravatar</a>
     hint:
-      blank: lascia vuoto se non vuoi modificareit
+      blank: lascia vuoto se non vuoi modificare la password
       current_password: è necessaria la password corrente per confermare il cambiamento
+    last_name: Cognome
+    password: Password
+    password_confirmation: Conferma nuova password
     update_button: Aggiorna
   report:
     headers:
@@ -209,6 +307,9 @@ it:
     monthly: 1 mese
     weekly: 1 settimana
     yearly: 1 anno
+  remember_me: Ricordami
+  resend_confirmation_info: Rimandami le istruzioni per confemare la mail
+  reset_password_info: Inviami le istruzioni per resettare la password
   restricted: Non consentito
   sign_in: Login
   sign_out: Logout
@@ -219,13 +320,17 @@ it:
         other: ore
       hours_indication: h
     show_more: vedi di più...
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M"
+      long: "%d/%m/%Y %H:%M"
   titles:
     activities: Attività
     application: Ore
     accounts:
       edit: Modifica Account
     archives:
-      index: Archivia
+      index: Archivio
     billables:
       index: Registrazioni fatturabili
     categories:
@@ -244,7 +349,8 @@ it:
     users:
       index: Utenti
     reports:
-      index: Reporting
+      index: Report
+  update_password: Aggiorna la password
   users:
     email: Email
     invite: Invita utente
@@ -253,29 +359,3 @@ it:
     update:
       update_needs_confirmation: "Hai aggiornato il tuo account con successo, ma è necessario verificare il tuo nuovo indirizzo mail. Per cortesia verifica la tua mail e clicca sul link di conferma per abilitare il nuovo indirizzo mail."
       updated: Account aggiornato con successo.
-
-  entry_filters:
-    title: Filtri
-    clients: Tutti i clienti
-    projects: Tutti i progetti
-    users: Tutti gli utenti
-    from_date_label: Da
-    to_date_label: A
-    billed_label: Fatturato o non
-    billed: Fatturato
-    billable: Fatturabile
-    not_billed: Non fatturato
-    not_billable: Non fatturabile
-    billed_empty: Fatturato o non
-    billable_empty: Fatturabile o non
-    archived_empty: Archiviato e non archiviato
-    archived: Archiviato
-    not_archived: Non archiviato
-  pages:
-    slogan: Time tracking software
-    free_trial_html: Prova
-    prices: Prezzi
-  time:
-    formats:
-      default: "%d/%m/%Y %H:%M"
-      long: "%d/%m/%Y %H:%M"

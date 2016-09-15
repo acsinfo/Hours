@@ -1,0 +1,9 @@
+it:
+  simple_form:
+    "yes": 'Sì'
+    "no": 'No'
+    required:
+      text: 'richiesto'
+      mark: '*'
+    error_notification:
+      default_message: "Rivedi i problemi sotto"
