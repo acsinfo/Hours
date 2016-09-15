@@ -41,7 +41,7 @@ describe Account do
       account.valid?
 
       expect(account.errors.messages[:subdomain]).
-        to eq ["contains invalid characters"]
+        to eq [I18n.t('activerecord.errors.models.account.attributes.subdomain.invalid_characters')]
     end
 
     it "set for restricted subdomain" do
@@ -49,7 +49,7 @@ describe Account do
       account.valid?
 
       expect(account.errors.messages[:subdomain]).
-        to eq ["provided subdomain is restricted"]
+        to eq [I18n.t('activerecord.errors.models.account.attributes.subdomain.restricted')]
     end
   end
 end
