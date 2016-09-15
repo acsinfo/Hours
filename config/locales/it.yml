@@ -284,7 +284,7 @@ it:
       archive_link: Archivia
       un_archive_link: Annulla archiviazione
   project_activity_html:
-    one: "<strong>%{full_name}</strong> ha passato <strong>%{hours}</strong> su <strong>%{project}</strong>"
+    one: "<strong>%{full_name}</strong> ha passato <strong>%{hours}</strong> ore su <strong>%{project}</strong>"
     other: "<strong>%{count}</strong> persone hanno passato <strong>%{hours}</strong> ore su <strong>%{project}</strong>"
   project_created: Progetto creato con successo
   project_updated: Progetto aggiornato con successo
