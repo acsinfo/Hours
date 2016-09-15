@@ -144,6 +144,7 @@ en:
     clients: All Clients
     projects: All Projects
     users: All Users
+    date_format_hint: dd/mm/yyyy
     from_date_label: From date
     to_date_label: To date
     billed_label: Billed or not

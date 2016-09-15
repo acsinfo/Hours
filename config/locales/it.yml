@@ -202,6 +202,7 @@ it:
     clients: Tutti i clienti
     projects: Tutti i progetti
     users: Tutti gli utenti
+    date_format_hint: gg/mm/aaaa
     from_date_label: Da
     to_date_label: A
     billed_label: Fatturato o non
