@@ -1,10 +1,10 @@
 feature "User registers time" do
   let(:subdomain) { generate(:subdomain) }
+  let(:user) { build(:user) }
 
   before(:each) do
-    @user = build(:user)
-    create(:account_with_schema, subdomain: subdomain, owner: @user)
-    sign_in_user(@user, subdomain: subdomain)
+    create(:account_with_schema, subdomain: subdomain, owner: user)
+    sign_in_user(user, subdomain: subdomain)
 
     create(:project, name: "CAPP11")
     create(:project, name: "Conversations")
@@ -23,15 +23,6 @@ feature "User registers time" do
       end
 
       expect(page).to have_content (I18n.t("entry_created.hours"))
-    end
-
-    scenario "validates that hours are integers" do
-      within ".tab-header-and-content-left" do
-        fill_in_entry(hours: 0.5)
-        click_button (I18n.t("helpers.submit.create"))
-      end
-      expect(page).to have_content(
-        I18n.t("activerecord.attributes.hour.value") + " must be an integer")
     end
   end
 
@@ -63,7 +54,7 @@ feature "User registers time" do
   context "open entry" do
     before do
       @starting_time = I18n.l(DateTime.now - 1.hour)
-      entry = create(:hour, user: @user, starting_time: @starting_time)
+      @entry = create(:hour, user: user, starting_time: @starting_time)
       visit root_url(subdomain: subdomain)
     end
 
@@ -82,10 +73,9 @@ feature "User registers time" do
     end
   end
 
-  def fill_in_entry(hours: 4)
+  def fill_in_entry
     select "Conversations", from: "Project"
     select "Design", from: "Category"
-    fill_in "hour_value", with: hours
     fill_in "hour_starting_time", with: "01/02/2014 08:00"
   end
 end

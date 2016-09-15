@@ -5,7 +5,11 @@ class EntryStats
   end
 
   def percentage_for_subject
-    (hours_for_subject.to_f / total_hours.to_f * 100).round
+    if total_hours == 0
+      0
+    else
+      (hours_for_subject.to_f / total_hours.to_f * 100).round
+    end
   end
 
   def hours_for_subject

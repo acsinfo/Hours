@@ -32,6 +32,6 @@ class EntriesController < ApplicationController
   end
 
   def parsed_time(datetime)
-    Time.strptime(datetime, I18n.t('time.formats.default')) if datetime
+    Time.strptime(datetime, I18n.t('time.formats.default'))
   end
 end

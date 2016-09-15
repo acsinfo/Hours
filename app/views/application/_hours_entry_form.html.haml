@@ -2,7 +2,6 @@
   = f.error_notification
   = f.association :project, required: true, collection: Project.unarchived.by_name, label: false, placeholder: t("entries.index.project")
   = f.association :category, required: true, collection: Category.by_name, label: false, placeholder: t("entries.index.category")
-  = f.input :value, required: true, label: false, placeholder: t("entries.index.hours")
   = f.input :starting_time, required: true, as: :string, input_html: { value: I18n.l(@hours_entry.starting_time || DateTime.current)}, label: t("entries.index.starting_time")
   - if @hours_entry.persisted?
     = f.input :ending_time, as: :string, input_html: { value: I18n.l(DateTime.current)}, label: t("entries.index.ending_time")
