@@ -305,6 +305,7 @@ it:
   report:
     headers:
       starting_time: Ora di inizio
+      ending_time: Ora di fine
       user: Utente
       project: Progetto
       category: Categoria

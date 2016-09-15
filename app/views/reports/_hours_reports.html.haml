@@ -6,6 +6,7 @@
         %thead
           %tr
             %th= t("report.headers.starting_time")
+            %th= t("report.headers.ending_time")
             %th= t("report.headers.user")
             %th= t("report.headers.project")
             %th.hide-for-mobile= t("report.headers.category")
@@ -16,6 +17,7 @@
         - @hours_entries.each do |entry|
           %tr.info-row
             %td= I18n.l(entry.starting_time)
+            %td= entry.ending_time ? I18n.l(entry.ending_time) : ""
             %td= link_to entry.user.full_name, entry.user
             %td= link_to entry.project.name, entry.project
             %td.hide-for-mobile= entry.category.name

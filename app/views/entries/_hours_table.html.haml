@@ -1,6 +1,7 @@
 %thead
   %tr
     %th= t("entries.index.starting_time")
+    %th= t("entries.index.ending_time")
     %th= t("entries.index.project")
     %th.center= t("entries.index.hours")
     %th.hide-for-mobile= t("entries.index.category")
@@ -15,6 +16,10 @@
         %td.starting_time
           %div.weekday= t("weekdays." + entry.starting_time.strftime('%A').downcase)
           = I18n.l(entry.starting_time)
+        %td.ending_time
+          - if entry.ending_time
+            %div.weekday= t("weekdays." + entry.ending_time.strftime('%A').downcase)
+            = I18n.l(entry.ending_time)
         %td.project= link_to entry.project.name, entry.project
         %td.hours.center= entry.value
         %td.category.hide-for-mobile

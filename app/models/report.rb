@@ -6,6 +6,7 @@ class Report
   def headers(entry_type)
     header = %w(
       starting_time
+      ending_time
       user
       project
       category

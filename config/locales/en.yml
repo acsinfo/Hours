@@ -238,6 +238,7 @@ en:
   report:
     headers:
       starting_time: Starting time
+      ending_time: Ending time
       user: User
       project: Project
       category: Category
