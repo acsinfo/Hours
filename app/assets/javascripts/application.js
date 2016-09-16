@@ -4,7 +4,6 @@
 //= require jquery_ujs
 //= require jquery.atwho
 //= require moment
-//= require pikaday
 //= require chartjs
 //= require select2
 //= require i18n
@@ -19,13 +18,6 @@ var Hours = Hours || {
     $('.modal-state').attr('checked', false);
   }
 };
-
-$('.datepicker').each(function () {
-  new Pikaday({
-    field: this,
-    format: I18n[$('body').data('language')].date.format
-  });
-});
 
 $('.alert').ready(function() {
   setTimeout(function() {

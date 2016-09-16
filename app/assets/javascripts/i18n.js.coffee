@@ -9,13 +9,13 @@ window.I18n =
     checked:
       pre: 'You\'ve marked '
       post: ' entries to be billed'
-  nl:
+  it:
     date:
-      today: 'vandaag'
-      yesterday: 'gister'
-      future: 'dagen in de toekomst'
-      dateAgo: 'dagen geleden'
+      today: 'oggi'
+      yesterday: 'ieri'
+      future: 'giorni nel futuro'
+      dateAgo: 'giorni fa'
       format: 'DD/MM/YYYY'
     checked:
-      pre: 'Je hebt '
-      post: ' entries geselecteerd'
+      pre: 'Hai registrato '
+      post: ' registrazioni da fatturare'

@@ -25,7 +25,6 @@ gem "unicorn"
 gem "devise", "~> 3.5.2"
 gem "devise_invitable", "~> 1.5.5"
 gem "apartment", "~> 0.26.0"
-gem "pikaday-gem", "~> 1.2.0.0"  ### this may be probably removed
 gem "momentjs-rails"
 gem "gravatar_image_tag"
 gem "hashtel", "~> 0.0.2"

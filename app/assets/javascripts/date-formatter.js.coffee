@@ -1,7 +1,8 @@
 class window.DateFormatter
   MS_PER_DAY = 1000 * 60 * 60 * 24
 
-  constructor: (date, locale) ->
+  constructor: (timestamp, locale) ->
+    date = timestamp.substring(0, 10)
     @date = new Date(date)
     @locale = I18n[locale || "en"]
 
