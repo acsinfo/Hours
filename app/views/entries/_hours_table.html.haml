@@ -31,5 +31,5 @@
           %td.actions.right
             = link_to t('entries.index.edit'), edit_hour_path(entry)
         %td.changes.right.hide-for-mobile
-          = link_to t('entries.index.changes'), hour_audits_path(entry) if entry.audits.count > 1
+          = link_to t('entries.index.changes'), hour_audits_path(entry)
 
