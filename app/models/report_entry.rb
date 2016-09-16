@@ -7,6 +7,10 @@ class ReportEntry < SimpleDelegator
     I18n.l __getobj__.starting_time
   end
 
+  def ending_time
+    __getobj__.ending_time ? I18n.l(__getobj__.ending_time) : ""
+  end
+
   def project
     __getobj__.project.name
   end

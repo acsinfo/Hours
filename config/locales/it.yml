@@ -13,6 +13,7 @@ it:
     title: Audit Log
     date: "Data:"
     starting_time: "Ora di inizio:"
+    ending_time: "Ora di fine:"
     action: "Azione:"
     user: "Utente:"
     project: "Progetto:"
@@ -26,6 +27,8 @@ it:
     hours: "Ore:"
     from: da
     to: a
+    created_at: "Creato alle:"
+    updated_at: "Aggiornato alle:"
     actions:
       update: aggiornato
       create: creato
@@ -71,6 +74,15 @@ it:
           attributes:
             name:
               blank: non può essere vuoto
+        hour:
+          attributes:
+            category:
+              blank: non può essere vuoto
+            project:
+              blank: non può essere vuoto
+            value:
+              blank: non può essere vuoto
+              not_a_number: deve essere un numero
         project:
           attributes:
             name:
@@ -125,6 +137,7 @@ it:
   client_created: Cliente creato con successo
   client_updated: Cliente aggiornato con successo
   confirm: Sei sicuro?
+  current_activity_html: "%{user} sta lavorando a %{category} su %{project}"
   date:
     formats:
       default: "%d/%m/%Y"
@@ -184,14 +197,16 @@ it:
       description: 'Descrizione o #hashtags'
       edit: modifica
       edit_hours_entry: Modifica registrazione
+      ending_time: Ora di fine
       hours: Ore
-      new: Nuova registrazione
+      new: Registra il tuo tempo
       project: Progetto
       user_entries: "Registrazioni di %{user}"
       changes: audit
   entry_activity_html:
-    one: "%{user} ha passato un'ora facendo %{category} su %{project}"
-    other: "%{user} ha passato %{count} ore facendo %{category} su %{project}"
+    zero: "%{user} ha lavorato meno di un'ora a %{category} su %{project}"
+    one: "%{user} ha lavorato un'ora a %{category} su %{project}"
+    other: "%{user} ha lavorato %{count} ore a %{category} su %{project}"
   entry_created:
     hours: Registrazione creata con successo
   entry_deleted:
@@ -216,6 +231,21 @@ it:
     archived: Archiviato
     not_archived: Non archiviato
   entry_saved: Registrazione salvata con successo
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      blank: non può essere vuoto
+      empty: non può essere vuoto
+      equal_to: deve essere uguale a %{count}
+      greater_than: deve essere maggiore di %{count}
+      greater_than_or_equal_to: deve essere maggiore o uguale a %{count}
+      invalid: non è valido
+      less_than: deve essere minore di %{count}
+      less_than_or_equal_to: deve essere minore o uguale a %{count}
+      model_invalid: "Validazione fallita: %{errors}"
+      not_a_number: non è un numero
+      not_an_integer: deve essere un intero
+      taken: già in uso
   helpers:
     submit:
       create: Crea Registrazione
@@ -274,7 +304,7 @@ it:
       archive_link: Archivia
       un_archive_link: Annulla archiviazione
   project_activity_html:
-    one: "<strong>%{full_name}</strong> ha passato <strong>%{hours}</strong> su <strong>%{project}</strong>"
+    one: "<strong>%{full_name}</strong> ha passato <strong>%{hours}</strong> ore su <strong>%{project}</strong>"
     other: "<strong>%{count}</strong> persone hanno passato <strong>%{hours}</strong> ore su <strong>%{project}</strong>"
   project_created: Progetto creato con successo
   project_updated: Progetto aggiornato con successo
@@ -295,6 +325,7 @@ it:
   report:
     headers:
       starting_time: Ora di inizio
+      ending_time: Ora di fine
       user: Utente
       project: Progetto
       category: Categoria
@@ -357,6 +388,8 @@ it:
     invite: Invita utente
     invitation_sent_at: Invitato %{time_ago} fa
     confirm: Conferma
+    show:
+      entries: Registrazioni
     update:
       update_needs_confirmation: "Hai aggiornato il tuo account con successo, ma è necessario verificare il tuo nuovo indirizzo mail. Per cortesia verifica la tua mail e clicca sul link di conferma per abilitare il nuovo indirizzo mail."
       updated: Account aggiornato con successo.

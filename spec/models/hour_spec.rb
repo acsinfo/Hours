@@ -3,10 +3,7 @@ describe Hour do
     it { should validate_presence_of :user }
     it { should validate_presence_of :project }
     it { should validate_presence_of :category }
-    it { should validate_presence_of :value }
     it { should validate_presence_of :starting_time }
-    it { should validate_numericality_of(:value).is_greater_than(0) }
-    it { should validate_numericality_of(:value).only_integer }
   end
 
   describe "associations" do
@@ -90,6 +87,15 @@ describe Hour do
     create(:hour).project.update_attribute(:client, client)
 
     expect(Hour.with_clients.count).to eq(1)
+  end
+
+  it "#open_per_user" do
+    entry_1 = create(:hour, ending_time: 5.days.ago)
+    entry_2 = create(:hour)
+    user = entry_1.user
+    entry_3 = create(:hour, user: user)
+    
+    expect(Hour.open_per_user(user.id)).to eq([entry_3])
   end
 
   describe "#query" do

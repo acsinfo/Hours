@@ -22,11 +22,8 @@ class EntryCSVGenerator
   end
 
   def get_fields(entry, entry_type)
-    fields = [entry.starting_time, entry.user, entry.project]
-    fields.push [entry.category]
-    fields.push [entry.client, entry.value]
-    fields.push [entry.description]
-    fields.flatten
+    [entry.starting_time, entry.ending_time, entry.user, entry.project,
+     entry.category, entry.client, entry.value, entry.description].flatten
   end
 
   def fill_fields(entry_type, csv)

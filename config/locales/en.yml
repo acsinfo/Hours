@@ -13,6 +13,7 @@ en:
     title: Audit Log
     date: "Date:"
     starting_time: "Starting time:"
+    ending_time: "Ending time:"
     action: "Action:"
     user: "User:"
     project: "Project:"
@@ -26,6 +27,8 @@ en:
     hours: "Hours:"
     from: from
     to: to
+    created_at: "Created at:"
+    updated_at: "Updated at:"
     actions:
       update: updated
       create: created
@@ -103,6 +106,7 @@ en:
   client_created: Client successfully created
   client_updated: Client successfully updated
   confirm: Are you sure?
+  current_activity_html: "%{user} is doing %{category} on %{project}"
   date:
     formats:
       default: "%d/%m/%Y"
@@ -121,13 +125,14 @@ en:
     download_csv: Download all entries as CSV
     index:
       category: Category
-      starting_time: Ora di inizio
+      starting_time: Starting time
       delete: delete
       description: 'Description or #hashtags'
       edit: edit
       edit_hours_entry: Edit Hours Entry
+      ending_time: Ending time 
       hours: Hours
-      new: New Entry
+      new: Track your time
       project: Project
       user_entries: "%{user}'s entries"
       changes: changes
@@ -237,6 +242,7 @@ en:
   report:
     headers:
       starting_time: Starting time
+      ending_time: Ending time
       user: User
       project: Project
       category: Category
@@ -298,6 +304,8 @@ en:
     invite: Invite User
     invitation_sent_at: Invited %{time_ago} ago
     confirm: Confirm
+    show:
+      entries: Entries
     update:
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and click on the confirm link to finalize confirming your new email address."
       updated: You updated your account successfully.

@@ -6,8 +6,9 @@
 #  project_id     :integer          not null
 #  category_id    :integer          not null
 #  user_id        :integer          not null
-#  value          :integer          not null
+#  value          :integer
 #  starting_time  :datetime         not null
+#  ending_time    :datetime
 #  created_at     :datetime
 #  updated_at     :datetime
 #  description    :string
@@ -32,6 +33,7 @@ class Hour < Entry
   scope :with_clients, -> {
     where.not("projects.client_id" => nil).joins(:project)
   }
+  scope :open_per_user, ->(user_id) { where(user_id: user_id, ending_time: nil) }
 
   before_save :set_tags_from_description
 
