@@ -226,6 +226,21 @@ it:
     archived: Archiviato
     not_archived: Non archiviato
   entry_saved: Registrazione salvata con successo
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      blank: non può essere vuoto
+      empty: non può essere vuoto
+      equal_to: deve essere uguale a %{count}
+      greater_than: deve essere maggiore di %{count}
+      greater_than_or_equal_to: deve essere maggiore o uguale a %{count}
+      invalid: non è valido
+      less_than: deve essere minore di %{count}
+      less_than_or_equal_to: deve essere minore o uguale a %{count}
+      model_invalid: "Validazione fallita: %{errors}"
+      not_a_number: non è un numero
+      not_an_integer: deve essere un intero
+      taken: già in uso
   helpers:
     submit:
       create: Crea Registrazione
