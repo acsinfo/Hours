@@ -388,6 +388,8 @@ it:
     invite: Invita utente
     invitation_sent_at: Invitato %{time_ago} fa
     confirm: Conferma
+    show:
+      entries: Registrazioni
     update:
       update_needs_confirmation: "Hai aggiornato il tuo account con successo, ma è necessario verificare il tuo nuovo indirizzo mail. Per cortesia verifica la tua mail e clicca sul link di conferma per abilitare il nuovo indirizzo mail."
       updated: Account aggiornato con successo.
