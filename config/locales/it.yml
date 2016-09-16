@@ -198,6 +198,7 @@ it:
       delete: elimina
       description: 'Descrizione o #hashtags'
       edit: modifica
+      edit_entry: Modifica registrazione
       edit_hours_entry: Modifica registrazione
       ending_time: Ora di fine
       hours: Ore
