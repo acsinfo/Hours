@@ -54,7 +54,7 @@ feature "User registers time" do
   context "open entry" do
     before do
       @starting_time = I18n.l(DateTime.now - 1.hour)
-      @entry = create(:hour, user: user, starting_time: @starting_time)
+      create(:hour, user: user, starting_time: @starting_time)
       visit root_url(subdomain: subdomain)
     end
 
@@ -70,6 +70,27 @@ feature "User registers time" do
       click_button (I18n.t("helpers.submit.update"))
 
       expect(page).to have_content (I18n.t("entry_saved"))
+    end
+  end
+
+  context "invalid starting time" do
+    scenario "an error message is diplayed" do
+      fill_in "hour_starting_time", with: "99/02/2014 09:00"
+      click_button (I18n.t("helpers.submit.create"))
+
+      expect(page).to have_content (I18n.t("invalid_datetime"))
+    end
+  end
+
+  context "invalid ending time" do
+    scenario "an error message is diplayed" do
+      create(:hour, user: user)
+      visit root_url(subdomain: subdomain)
+
+      fill_in "hour_ending_time", with: "99/02/2014 09:00"
+      click_button (I18n.t("helpers.submit.update"))
+
+      expect(page).to have_content (I18n.t("invalid_datetime"))
     end
   end
 
