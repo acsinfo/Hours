@@ -58,6 +58,8 @@ it:
   activerecord:
     attributes:
       hour:
+        category: Categoria
+        project: Progetto
         value: Ore
     errors:
       models:

@@ -58,7 +58,9 @@ en:
   activerecord:
     attributes:
       hour:
-        value: "Hours"
+        category: Category
+        project: Project
+        value: Hours
     errors:
       models:
         account:
