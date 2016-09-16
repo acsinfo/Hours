@@ -1,6 +1,8 @@
 class EntriesController < ApplicationController
   include CSVDownload
 
+  rescue_from ArgumentError, :with => :datetime_format_error
+
   def index
     @user = User.find_by_slug(params[:user_id])
     @hours_entries = @user.hours.by_starting_time.page(params[:hours_pages]).per(20)
@@ -33,5 +35,9 @@ class EntriesController < ApplicationController
 
   def parsed_time(datetime)
     Time.strptime(datetime, I18n.t('time.formats.default'))
+  end
+
+  def datetime_format_error
+    redirect_to :back, notice: I18n.t('invalid_datetime')
   end
 end
