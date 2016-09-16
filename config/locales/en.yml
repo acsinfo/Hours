@@ -13,6 +13,7 @@ en:
     title: Audit Log
     date: "Date:"
     starting_time: "Starting time:"
+    ending_time: "Ending time:"
     action: "Action:"
     user: "User:"
     project: "Project:"
@@ -26,6 +27,8 @@ en:
     hours: "Hours:"
     from: from
     to: to
+    created_at: "Created at:"
+    updated_at: "Updated at:"
     actions:
       update: updated
       create: created
