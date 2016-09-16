@@ -134,6 +134,7 @@ it:
   client_created: Cliente creato con successo
   client_updated: Cliente aggiornato con successo
   confirm: Sei sicuro?
+  current_activity_html: "%{user} sta lavorando a %{category} su %{project}"
   date:
     formats:
       default: "%d/%m/%Y"
@@ -200,8 +201,9 @@ it:
       user_entries: "Registrazioni di %{user}"
       changes: audit
   entry_activity_html:
-    one: "%{user} ha passato un'ora facendo %{category} su %{project}"
-    other: "%{user} ha passato %{count} ore facendo %{category} su %{project}"
+    zero: "%{user} ha lavorato meno di un'ora a %{category} su %{project}"
+    one: "%{user} ha lavorato un'ora a %{category} su %{project}"
+    other: "%{user} ha lavorato %{count} ore a %{category} su %{project}"
   entry_created:
     hours: Registrazione creata con successo
   entry_deleted:

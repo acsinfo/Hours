@@ -103,6 +103,7 @@ en:
   client_created: Client successfully created
   client_updated: Client successfully updated
   confirm: Are you sure?
+  current_activity_html: "%{user} is doing %{category} on %{project}"
   date:
     formats:
       default: "%d/%m/%Y"
