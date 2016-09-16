@@ -268,6 +268,7 @@ it:
     no_billable_projects_html: Sembra che tu non abbia ancora definito nessun progetto fatturabile, puoi definirne 
       uno %{new_project_path}.
     no_billable_entries_html: Sembra che nessuna registrazione soddisfi i requisiti.
+  invalid_date: La data indicata non è valida
   invalid_datetime: Data e ora indicate non sono valide
   loader:
     saving: Salvataggio in corso
