@@ -131,6 +131,7 @@ en:
       delete: delete
       description: 'Description or #hashtags'
       edit: edit
+      edit_entry: Edit Entry
       edit_hours_entry: Edit Hours Entry
       ending_time: Ending time 
       hours: Hours
