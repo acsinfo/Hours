@@ -4,8 +4,8 @@
       url: invitation_path(resource_name),         |
       html: { :method => :put } do |f|             |
       = f.input :invitation_token, as: :hidden
-      = f.input :first_name
-      = f.input :last_name
-      = f.input :password
-      = f.input :password_confirmation
+      = f.input :first_name, label: t("registration.first_name")
+      = f.input :last_name, label: t("registration.last_name")
+      = f.input :password, label: t("registration.password")
+      = f.input :password_confirmation, label: t("registration.password_confirmation")
       = f.button :submit, t("users.confirm")

@@ -72,6 +72,8 @@ en:
           attributes:
             email:
               invalid_domain: must be a company address
+            password_confirmation:
+              confirmation: does not match
   back: Back
   billables:
     billable_entries: Billable Entries
@@ -118,7 +120,7 @@ en:
       default: "%d/%m/%Y"
   email:
     confirmation:
-      confirmation_text: Someone has invited you to Hours, you can accept it through the link below.
+      confirmation_text: You have successfully created a new subdomain on Hours, now you must confirm your account through the link below.
       confirm_password: Confirm my account
       salutation: Welcome %{email}!
     reset_password:
