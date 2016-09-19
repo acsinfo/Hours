@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of :first_name, :last_name
   validates :email, format: {
-                      with: /\A[A-Z0-9._%a-z\-]+@(#{ENV["ALLOWED_DOMAINS"]})\Z,
+                      with: /\A[A-Z0-9._%a-z\-]+@(#{ENV["ALLOWED_DOMAINS"]})\Z/,
                       message: :invalid_domain
                     }
 
