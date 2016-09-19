@@ -118,6 +118,7 @@ en:
       default: "%d/%m/%Y"
   email:
     confirmation:
+      confirmation_text: Someone has invited you to Hours, you can accept it through the link below.
       confirm_password: Confirm my account
       salutation: Welcome %{email}!
     reset_password:

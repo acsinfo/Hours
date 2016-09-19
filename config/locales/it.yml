@@ -185,6 +185,7 @@ it:
         other: "%{count} secondi"
   email:
     confirmation:
+      confirmation_text: Qualcuno ti ha invitato ad utilizzare Hours, puoi accettare l'invito attraverso il link qui sotto.
       confirm_password: Conferma il mio account
       salutation: Benvenuto %{email}!
     reset_password:
