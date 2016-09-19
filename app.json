@@ -19,6 +19,6 @@
   "addons": [
     "heroku-postgresql",
     "memcachier",
-    "papertrail",
+    "papertrail"
   ]
 }
