@@ -6,5 +6,5 @@
   = link_to t("devise.mailer.invitation_instructions.accept"), |
     accept_invitation_url(@resource,                           |
     invitation_token: @token,                                  |
-    subdomain: current_subdomain)                      |
-  %p= t("devise.mailer.invitation_instructions.ignore_html")
+    subdomain: current_subdomain)                              |
+  %p= t("devise.mailer.invitation_instructions.ignore")
