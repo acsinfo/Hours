@@ -1,21 +1,18 @@
 class EntriesController < ApplicationController
   include CSVDownload
 
-  DATE_FORMAT = "%d/%m/%Y".freeze
+  rescue_from ArgumentError, :with => :datetime_format_error
 
   def index
     @user = User.find_by_slug(params[:user_id])
-    @hours_entries = @user.hours.by_date.page(params[:hours_pages]).per(20)
-    @mileages_entries = @user.mileages.by_date.page(
-      params[:mileages_pages]).per(20)
+    @hours_entries = @user.hours.by_starting_time.page(params[:hours_pages]).per(20)
 
     respond_to do |format|
-      format.html { @mileages_entries + @hours_entries }
+      format.html { @hours_entries }
       format.csv do
         send_csv(
           name: @user.name,
-          hours_entries: @user.hours.by_date,
-          mileages_entries: @user.mileages.by_date)
+          hours_entries: @user.hours.by_starting_time)
       end
     end
   end
@@ -36,7 +33,11 @@ class EntriesController < ApplicationController
     params[:controller]
   end
 
-  def parsed_date(entry_type)
-    Date.strptime(params[entry_type][:date], DATE_FORMAT)
+  def parsed_time(datetime)
+    Time.strptime(datetime, I18n.t('time.formats.default'))
+  end
+
+  def datetime_format_error
+    redirect_to :back, notice: I18n.t('invalid_datetime')
   end
 end

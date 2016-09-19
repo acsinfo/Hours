@@ -11,7 +11,7 @@ class HoursController < EntriesController
   end
 
   def update
-    if resource.update_attributes(entry_params)
+    if resource.update_attributes(updated_entry_params)
       redirect_to user_entries_path(current_user), notice: t("entry_saved")
     else
       redirect_to edit_hour_path(resource), notice: t("entry_failed")
@@ -31,7 +31,17 @@ class HoursController < EntriesController
 
   def entry_params
     params.require(:hour).
-      permit(:project_id, :category_id, :value, :description, :date).
-      merge(date: parsed_date(:hour))
+      permit(:project_id, :category_id, :value, :description, :starting_time, :ending_time).
+      merge(starting_time: parsed_time(params[:hour][:starting_time]))
+  end
+
+  def updated_entry_params
+    entry_params.merge(ending_time: parsed_time(params[:hour][:ending_time])).
+                 merge(value: duration_in_hours)
+  end
+
+  def duration_in_hours
+    seconds = parsed_time(params[:hour][:ending_time]) - parsed_time(params[:hour][:starting_time])
+    (seconds/3600).round
   end
 end

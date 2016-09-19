@@ -1,13 +1,12 @@
 require "csv"
 
 class EntryCSVGenerator
-  def self.generate(hours_entries, mileages_entries)
-    new(hours_entries, mileages_entries).generate
+  def self.generate(hours_entries)
+    new(hours_entries).generate
   end
 
-  def initialize(hours_entries, mileages_entries)
+  def initialize(hours_entries)
     @hours_report = Report.new(hours_entries)
-    @mileages_report = Report.new(mileages_entries)
   end
 
   def generate
@@ -15,26 +14,16 @@ class EntryCSVGenerator
       csv << []
       csv << [I18n.translate("report.headers.hours")]
       fill_fields("hours", csv)
-      csv << []
-      csv << [I18n.translate("report.headers.mileages")]
-      fill_fields("mileages", csv)
     end
   end
 
   def options
-    return {
-      col_sep: ";"
-    } if I18n.locale.in?([:nl, :de])
-
     CSV::DEFAULT_OPTIONS
   end
 
   def get_fields(entry, entry_type)
-    fields = [entry.date, entry.user, entry.project]
-    fields.push [entry.category] if entry_type == "hours"
-    fields.push [entry.client, entry.value, entry.billable, entry.billed]
-    fields.push [entry.description] if entry_type == "hours"
-    fields.flatten
+    [entry.starting_time, entry.ending_time, entry.user, entry.project,
+     entry.category, entry.client, entry.value, entry.description].flatten
   end
 
   def fill_fields(entry_type, csv)

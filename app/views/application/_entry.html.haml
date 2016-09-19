@@ -2,9 +2,14 @@
   %li
     %div{:clas => "entry"}
       .avatar-container
-        = render "application/avatar", user: entry.user, easter: easter?
+        = render "application/avatar", user: entry.user
       .entry-text
-        = t(:entry_activity_html, user: link_to(entry.user.first_name, user_path(entry.user)), count: entry.value, |
-          category: colored_span(entry.category.name.pastel_color, entry.category.name), |
-          project: link_to(entry.project.name, entry.project))
-        %span.timestamp{"data-timestamp" => entry.date}= l entry.date
+        - if entry.value.nil?
+          = t(:current_activity_html, user: link_to(entry.user.first_name, user_path(entry.user)), |
+            category: colored_span(entry.category.name.pastel_color, entry.category.name), |
+            project: link_to(entry.project.name, entry.project))
+        - else
+          = t(:entry_activity_html, user: link_to(entry.user.first_name, user_path(entry.user)), count: entry.value, |
+            category: colored_span(entry.category.name.pastel_color, entry.category.name), |
+            project: link_to(entry.project.name, entry.project))
+          %span.timestamp{"data-timestamp" => entry.starting_time}= l entry.starting_time

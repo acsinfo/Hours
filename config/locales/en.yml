@@ -12,6 +12,8 @@ en:
     nothing: nothing
     title: Audit Log
     date: "Date:"
+    starting_time: "Starting time:"
+    ending_time: "Ending time:"
     action: "Action:"
     user: "User:"
     project: "Project:"
@@ -23,9 +25,10 @@ en:
     budget: "Budget:"
     category: "Category:"
     hours: "Hours:"
-    mileages: "Kilometers"
     from: from
     to: to
+    created_at: "Created at:"
+    updated_at: "Updated at:"
     actions:
       update: updated
       create: created
@@ -55,9 +58,9 @@ en:
   activerecord:
     attributes:
       hour:
-        value: "Hours"
-      mileage:
-        value: "Mileages"
+        category: Category
+        project: Project
+        value: Hours
     errors:
       models:
         account:
@@ -84,6 +87,8 @@ en:
   budget_html: "<strong>%{budget_left}</strong> of <strong>%{budget}</strong> hours left on budget"
   category:
     edit: edit
+    form:
+      name: Name
     remaining: Other
   category_created: Category successfully created
   category_updated: Category successfully updated
@@ -95,10 +100,15 @@ en:
     hours_spent_per_project: Hours spent per project
     hours_spent_per_user: Hours spent per user
   client:
+    form:
+      description: Description
+      logo: Logo
+      name: Name
     edit: Edit
   client_created: Client successfully created
   client_updated: Client successfully updated
   confirm: Are you sure?
+  current_activity_html: "%{user} is doing %{category} on %{project}"
   date:
     formats:
       default: "%d/%m/%Y"
@@ -117,15 +127,15 @@ en:
     download_csv: Download all entries as CSV
     index:
       category: Category
-      date: Date
+      starting_time: Starting time
       delete: delete
       description: 'Description or #hashtags'
       edit: edit
+      edit_entry: Edit Entry
       edit_hours_entry: Edit Hours Entry
-      edit_mileages_entry: Edit Kilometers Entry
+      ending_time: Ending time 
       hours: Hours
-      mileages: Kilometers
-      new: New Entry
+      new: Track your time
       project: Project
       user_entries: "%{user}'s entries"
       changes: changes
@@ -134,16 +144,28 @@ en:
     other: "%{user} spent %{count} hours doing %{category} on %{project}"
   entry_created:
     hours: Hours entry successfully created
-    mileages: Kilometers entry successfully created
   entry_deleted:
     hours: Hours Entry successfully deleted
-    mileages: Kilometers Entry successfully deleted
   entry_failed: Something went wrong saving your entry
+  entry_filters:
+    title: Filters
+    clients: All Clients
+    projects: All Projects
+    users: All Users
+    date_format_hint: dd/mm/yyyy
+    from_date_label: From date
+    to_date_label: To date
+    billed_label: Billed or not
+    billed: Billed
+    billable: Billable
+    not_billed: Not billed
+    not_billable: Not billable
+    billed_empty: Billed or not
+    billable_empty: Billable or not
+    archived_empty: Archived and Unarchived
+    archived: Archived
+    not_archived: Not Archived
   entry_saved: Entry successfully saved
-  helpful:
-    heading: Need help?
-    placeholder: Write your question here...
-    tagline: Have a question about Hours? Need some help getting started?
   helpers:
     submit:
       create: Create Entry
@@ -166,6 +188,8 @@ en:
     no_billable_projects_html: It looks like you don't have any billable projects yet, you can
       set one up %{new_project_path}.
     no_billable_entries_html: It looks like no entries meet your filter requirements yet.
+  invalid_date: Submitted date is not valid
+  invalid_datetime: Sumbitted date and time are not valid
   loader:
     saving: Saving
     signing_in: Sigining in
@@ -173,12 +197,23 @@ en:
     dropdown:
       edit_user: Edit profile
     entries: My Entries
+  new_password: New password
+  no_confirmation_info: Didn't receive confirmation instructions?
   no_hours_registered: Nobody spent any time on %{project} yet
+  no_unlock_info: Didn't receive unlock instructions?
+  pages:
+    slogan: Time registration that doesn't suck.
+    free_trial_html: Free<br/> trial
+    prices: Prices
+  password_confirmation: Confirm your new password
+  password_forgotten: Forgot your password?
   project:
     errors:
       client_missing: If the project is billable it needs a client
     form:
       client: Client
+      description: Description
+      name: Name
       no_client: No Client
     show:
       changes_link: changes
@@ -196,22 +231,28 @@ en:
   project_created: Project successfully created
   project_updated: Project successfully updated
   registration:
-    edit: Edit %{resource_name}
+    current_password: Current password
+    edit: Edit
+    email: Email
+    first_name: First name
     gravatar_instructions_html: Update your profile pic on <a href="https://www.gravatar.com"
       target="_blank">Gravatar</a>
     hint:
       blank: leave it blank if you don't want to change it
       current_password: we need your current password to confirm your changes
+    last_name: Last name
+    password: Password
+    password_confirmation: New password confirmation
     update_button: Update
   report:
     headers:
-      date: Date
+      starting_time: Starting time
+      ending_time: Ending time
       user: User
       project: Project
       category: Category
       client: Client
       hours: Hours
-      mileages: Kilometers
       billable: Billable
       billed: Billed
       description: Description
@@ -220,6 +261,9 @@ en:
     monthly: 1 month
     weekly: 1 week
     yearly: 1 year
+  remember_me: Remember me
+  resend_confirmation_info: Resend confirmation instructions
+  reset_password_info: Send me reset password instructions
   restricted: Restricted
   sign_in: Sign in
   sign_out: Sign Out
@@ -230,6 +274,9 @@ en:
         other: hours
       hours_indication: h
     show_more: show more...
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M"
   titles:
     activities: Activities
     application: Hours
@@ -256,33 +303,14 @@ en:
       index: Users
     reports:
       index: Reporting
+  update_password: Update password
   users:
     email: Email
     invite: Invite User
     invitation_sent_at: Invited %{time_ago} ago
     confirm: Confirm
+    show:
+      entries: Entries
     update:
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and click on the confirm link to finalize confirming your new email address."
       updated: You updated your account successfully.
-
-  entry_filters:
-    title: Filters
-    clients: All Clients
-    projects: All Projects
-    users: All Users
-    from_date_label: From date
-    to_date_label: To date
-    billed_label: Billed or not
-    billed: Billed
-    billable: Billable
-    not_billed: Not billed
-    not_billable: Not billable
-    billed_empty: Billed or not
-    billable_empty: Billable or not
-    archived_empty: Archived and Unarchived
-    archived: Archived
-    not_archived: Not Archived
-  pages:
-    slogan: Time registration that doesn't suck.
-    free_trial_html: Free<br/> triall
-    prices: Prices

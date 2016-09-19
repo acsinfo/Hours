@@ -1,0 +1,400 @@
+---
+it:
+  weekdays:
+    monday: Lunedì
+    tuesday: Martedì
+    wednesday: Mercoledì
+    thursday: Giovedì
+    friday: Venerdì
+    saturday: Sabato
+    sunday: Domenica
+  audits:
+    nothing: nulla
+    title: Audit Log
+    date: "Data:"
+    starting_time: "Ora di inizio:"
+    ending_time: "Ora di fine:"
+    action: "Azione:"
+    user: "Utente:"
+    project: "Progetto:"
+    name: "Nome:"
+    client: "Cliente:"
+    description: "Descrizione:"
+    billable: "Fatturabile:"
+    archived: "Archiviato:"
+    budget: "Budget:"
+    category: "Categoria:"
+    hours: "Ore:"
+    from: da
+    to: a
+    created_at: "Creato alle:"
+    updated_at: "Aggiornato alle:"
+    actions:
+      update: aggiornato
+      create: creato
+      delete: eliminato
+  account:
+    back_to_website: torna al sito
+    confirm_destroy: Sei sicuro di voler eliminare il tuo account?
+    create: Crea account
+    danger_zone: Zona pericolosa
+    delete: Elimina il mio account
+    deleted: Il tuo account è stato eliminato
+    email: Email
+    first_name: Nome
+    invalid_characters: contiene caratteri non validi
+    last_name: Cognome
+    password: Password
+    repeat_password: Conferma password
+    subdomain: Sottodominio
+    warning: Eliminando il tuo account cancellerai i dati di tutti gli utenti per il sottodominio %{subdomain}. 
+      L'azione non può essere annullata.
+  archives:
+    index:
+      date: Data
+      project: Progetto
+      hours: Ore
+      un_archive_link: Annulla archiviazione
+  activerecord:
+    attributes:
+      hour:
+        category: Categoria
+        project: Progetto
+        value: Ore
+    errors:
+      models:
+        account:
+          attributes:
+            subdomain:
+              invalid_characters: contiene caratteri non validi
+              restricted: il sottodominio fornito non può essere utilizzato
+        category:
+          attributes:
+            name:
+              blank: non può essere vuoto
+        client:
+          attributes:
+            name:
+              blank: non può essere vuoto
+        hour:
+          attributes:
+            category:
+              blank: non può essere vuoto
+            project:
+              blank: non può essere vuoto
+            value:
+              blank: non può essere vuoto
+              not_a_number: deve essere un numero
+        project:
+          attributes:
+            name:
+              blank: non può essere vuoto
+        user:
+          attributes:
+            current_password:
+              blank: non può essere vuota
+            email:
+              blank: non può essere vuota
+            first_name:
+              blank: non può essere vuoto
+            last_name:
+              blank: non può essere vuoto
+  back: Indietro
+  billables:
+    billable_entries: Registrazioni fatturabili
+    select_marked: Seleziona registrazioni di fatturare
+    buttons:
+      bill_selected: Fattura le registrazioni selezionate
+      filter: Filtre le registrazioni
+    table:
+      hours: Ore
+      date: Data
+      user: Utente
+      category: Categoria
+      billed: Fatturato
+  boolean:
+    "true": "sì"
+    "false": "no"
+  budget_html: "<strong>%{budget_left}</strong> di <strong>%{budget}</strong> ore a budget"
+  category:
+    edit: modifica
+    form:
+      name: Nome
+    remaining: Altro
+  category_created: Categoria creata con successo
+  category_updated: Categoria aggiornata con successo
+  change_password: Modifica la password
+  charts:
+    hours_per_day: Ore per giorno
+    hours_per_week: Ore per settimana
+    hours_spent_per_category: Ore per categoria
+    hours_spent_per_project: Ore per progetto
+    hours_spent_per_user: Ore per utente
+  client:
+    edit: Modifica
+    form:
+      description: Descrizione
+      logo: Logo
+      name: Nome
+  client_created: Cliente creato con successo
+  client_updated: Cliente aggiornato con successo
+  confirm: Sei sicuro?
+  current_activity_html: "%{user} sta lavorando a %{category} su %{project}"
+  date:
+    formats:
+      default: "%d/%m/%Y"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: circa un'ora
+        other: circa %{count} ore
+      about_x_months:
+        one: circa un mese
+        other: circa %{count} mesi
+      about_x_years:
+        one: circa un anno
+        other: circa %{count} anni
+      almost_x_years:
+        one: circa 1 anno
+        other: circa %{count} anni
+      half_a_minute: mezzo minuto
+      less_than_x_minutes:
+        one: meno di un minuto
+        other: meno di %{count} minuti
+      less_than_x_seconds:
+        one: meno di un secondo
+        other: meno di %{count} secondi
+      over_x_years:
+        one: oltre un anno
+        other: oltre %{count} anni
+      x_days:
+        one: 1 giorno
+        other: "%{count} giorni"
+      x_minutes:
+        one: 1 minuto
+        other: "%{count} minuti"
+      x_months:
+        one: 1 mese
+        other: "%{count} mesi"
+      x_seconds:
+        one: 1 secondo
+        other: "%{count} secondi"
+  email:
+    confirmation:
+      confirm_password: Conferma il mio account
+      salutation: Benvenuto %{email}!
+    reset_password:
+      info_text: La tua password non verrà cambiata finchè non accedi al link qui sopra e ne crei 
+        una nnuova.
+      requested_link: Qualcuno ha richiesto un link per cambiare la tua password. Puoi farlo attraverso 
+        il link qui sotto.
+      salutation: Ciao %{email} !
+      wrong_mail: Se non l'hai richiesto, ignora questa mail.
+  entries:
+    download_csv: Scarica tutte le registrazioni in CSV
+    index:
+      category: Categoria
+      starting_time: Ora di inizio
+      delete: elimina
+      description: 'Descrizione o #hashtags'
+      edit: modifica
+      edit_entry: Modifica registrazione
+      edit_hours_entry: Modifica registrazione
+      ending_time: Ora di fine
+      hours: Ore
+      new: Registra il tuo tempo
+      project: Progetto
+      user_entries: "Registrazioni di %{user}"
+      changes: audit
+  entry_activity_html:
+    zero: "%{user} ha lavorato meno di un'ora a %{category} su %{project}"
+    one: "%{user} ha lavorato un'ora a %{category} su %{project}"
+    other: "%{user} ha lavorato %{count} ore a %{category} su %{project}"
+  entry_created:
+    hours: Registrazione creata con successo
+  entry_deleted:
+    hours: Registrazione eliminata con successo
+  entry_failed: Qualcosa è andato storto durante il salvataggio della tua registrazione
+  entry_filters:
+    title: Filtri
+    clients: Tutti i clienti
+    projects: Tutti i progetti
+    users: Tutti gli utenti
+    date_format_hint: gg/mm/aaaa
+    from_date_label: Da
+    to_date_label: A
+    billed_label: Fatturato o non
+    billed: Fatturato
+    billable: Fatturabile
+    not_billed: Non fatturato
+    not_billable: Non fatturabile
+    billed_empty: Fatturato o non
+    billable_empty: Fatturabile o non
+    archived_empty: Archiviato e non archiviato
+    archived: Archiviato
+    not_archived: Non archiviato
+  entry_saved: Registrazione salvata con successo
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      blank: non può essere vuoto
+      empty: non può essere vuoto
+      equal_to: deve essere uguale a %{count}
+      greater_than: deve essere maggiore di %{count}
+      greater_than_or_equal_to: deve essere maggiore o uguale a %{count}
+      invalid: non è valido
+      less_than: deve essere minore di %{count}
+      less_than_or_equal_to: deve essere minore o uguale a %{count}
+      model_invalid: "Validazione fallita: %{errors}"
+      not_a_number: non è un numero
+      not_an_integer: deve essere un intero
+      taken: già in uso
+  helpers:
+    submit:
+      create: Crea Registrazione
+      update: Aggiorna Registrazione
+      project:
+        create: Crea Progetto
+        update: Aggiorna Progetto
+      category:
+        create: Crea Categoria
+        update: Aggiorna Categoria
+      client:
+        create: Crea Cliente
+        update: Aggiorna Cliente
+  info:
+    here: qui
+    no_categories_html: Sembra che tu non abbia ancora definito nessuna categoria, puoi definirne 
+      una %{categories_path}.
+    no_projects_html: Sembra che tu non abbia ancora definito nessun progetto, puoi definirne 
+      uno %{new_project_path}.
+    no_billable_projects_html: Sembra che tu non abbia ancora definito nessun progetto fatturabile, puoi definirne 
+      uno %{new_project_path}.
+    no_billable_entries_html: Sembra che nessuna registrazione soddisfi i requisiti.
+  invalid_date: La data indicata non è valida
+  invalid_datetime: Data e ora indicate non sono valide
+  loader:
+    saving: Salvataggio in corso
+    signing_in: Accesso in corso
+  navbar:
+    dropdown:
+      edit_user: Modifica profilo
+    entries: Le mie registrazioni
+  new_password: Nuova password
+  no_confirmation_info: Non hai ricevuto le istruzioni di conferma dell'email?
+  no_hours_registered: Nessuno ha ancora lavorato su %{project}
+  no_unlock_info: Non hai ricevuto le istruzioni di sblocco?
+  pages:
+    slogan: Time tracking software
+    free_trial_html: Prova
+    prices: Prezzi
+  password_confirmation: Conferma la tua nuova password
+  password_forgotten: Hai dimenticato la password?
+  project:
+    errors:
+      client_missing: Se il progetto è fatturabile, richiede un cliente
+    form:
+      client: Cliente
+      description: Descrizione
+      name: Nome
+      no_client: Nessun cliente
+    show:
+      changes_link: modifiche
+      edit_link: modifica
+      per_user: Per utente
+    table_head:
+      hours: Ore
+      tag: Tag
+    edit:
+      archive_link: Archivia
+      un_archive_link: Annulla archiviazione
+  project_activity_html:
+    one: "<strong>%{full_name}</strong> ha passato <strong>%{hours}</strong> ore su <strong>%{project}</strong>"
+    other: "<strong>%{count}</strong> persone hanno passato <strong>%{hours}</strong> ore su <strong>%{project}</strong>"
+  project_created: Progetto creato con successo
+  project_updated: Progetto aggiornato con successo
+  registration:
+    current_password: Password corrente
+    edit: Modifica
+    email: Email
+    first_name: Nome
+    gravatar_instructions_html: Aggiorna la tua immagine profilo su <a href="https://www.gravatar.com"
+      target="_blank">Gravatar</a>
+    hint:
+      blank: lascia vuoto se non vuoi modificare la password
+      current_password: è necessaria la password corrente per confermare il cambiamento
+    last_name: Cognome
+    password: Password
+    password_confirmation: Conferma nuova password
+    update_button: Aggiorna
+  report:
+    headers:
+      starting_time: Ora di inizio
+      ending_time: Ora di fine
+      user: Utente
+      project: Progetto
+      category: Categoria
+      client: Cliente
+      hours: Ore
+      billable: Fatturabile
+      billed: Fatturato
+      description: Descrizione
+    filters: filtri
+    hours_per_day: Ore per giorno
+    monthly: 1 mese
+    weekly: 1 settimana
+    yearly: 1 anno
+  remember_me: Ricordami
+  resend_confirmation_info: Rimandami le istruzioni per confemare la mail
+  reset_password_info: Inviami le istruzioni per resettare la password
+  restricted: Non consentito
+  sign_in: Login
+  sign_out: Logout
+  tags:
+    show:
+      hours_indication_title:
+        one: ora
+        other: ore
+      hours_indication: h
+    show_more: vedi di più...
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M"
+      long: "%d/%m/%Y %H:%M"
+  titles:
+    activities: Attività
+    application: Ore
+    accounts:
+      edit: Modifica Account
+    archives:
+      index: Archivio
+    billables:
+      index: Registrazioni fatturabili
+    categories:
+      index: Categorie
+      new: Nuova Categoria
+      edit: Modifica Categoria
+    clients:
+      index: Clienti
+      new: Nuovo Cliente
+    entries:
+      index: Tutte le registrazioni
+    projects:
+      index: Progetti
+      new: Nuovo Progetto
+      edit: Modifica Progetto
+    users:
+      index: Utenti
+    reports:
+      index: Report
+  update_password: Aggiorna la password
+  users:
+    email: Email
+    invite: Invita utente
+    invitation_sent_at: Invitato %{time_ago} fa
+    confirm: Conferma
+    show:
+      entries: Registrazioni
+    update:
+      update_needs_confirmation: "Hai aggiornato il tuo account con successo, ma è necessario verificare il tuo nuovo indirizzo mail. Per cortesia verifica la tua mail e clicca sul link di conferma per abilitare il nuovo indirizzo mail."
+      updated: Account aggiornato con successo.

@@ -9,33 +9,32 @@ feature "User Report" do
 
   scenario "views all entries" do
     hour = create(:hour, value: 1000)
-    mileage = create(:mileage, value: 2000)
     visit reports_url(subdomain: subdomain)
 
     expect(page).to have_content(hour.value)
-    expect(page).to have_content(mileage.value)
     expect(page).to have_content(I18n.t("entries.download_csv"))
     expect(page).to have_selector(".info-row")
   end
 
-  context "filters" do
-    scenario "on billable" do
-      client = create(:client)
-      description1 = "awesome project"
-      description2 = "not so awesome project"
-      project1 = create(:project, client: client, billable: true)
-      project2 = create(:project, client: client, billable: false)
-      entry1 = create(:hour, project: project1, description: description1)
-      entry2 = create(:hour, project: project2, description: description2)
-
+  context "invalid from date" do
+    scenario "an error message is displayed" do
       visit reports_url(subdomain: subdomain)
 
-      select(I18n.t("entry_filters.billable"), from: "entry_filter_billable")
+      fill_in "entry_filter_from_date", with: "99/02/2014"
+      click_button (I18n.t("billables.buttons.filter"))
 
-      find(:css, "input[value='#{I18n.t('billables.buttons.filter')}']").click
+      expect(page).to have_content (I18n.t("invalid_date"))
+    end
+  end
 
-      expect(page).to have_content(entry1.description)
-      expect(page).to_not have_content(entry2.description)
+  context "invalid to date" do
+    scenario "an error message is displayed" do
+      visit reports_url(subdomain: subdomain)
+
+      fill_in "entry_filter_to_date", with: "99/02/2014"
+      click_button (I18n.t("billables.buttons.filter"))
+
+      expect(page).to have_content (I18n.t("invalid_date"))
     end
   end
 end

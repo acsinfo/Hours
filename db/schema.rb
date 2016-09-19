@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224115957) do
+ActiveRecord::Schema.define(version: 20160915135551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,37 +80,23 @@ ActiveRecord::Schema.define(version: 20150224115957) do
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "hours", force: :cascade do |t|
-    t.integer  "project_id",                  null: false
-    t.integer  "category_id",                 null: false
-    t.integer  "user_id",                     null: false
-    t.integer  "value",                       null: false
-    t.date     "date",                        null: false
+    t.integer  "project_id",                    null: false
+    t.integer  "category_id",                   null: false
+    t.integer  "user_id",                       null: false
+    t.integer  "value"
+    t.datetime "starting_time",                 null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "description"
-    t.boolean  "billed",      default: false
+    t.boolean  "billed",        default: false
+    t.datetime "ending_time"
   end
 
   add_index "hours", ["billed"], name: "index_hours_on_billed", using: :btree
   add_index "hours", ["category_id"], name: "index_hours_on_category_id", using: :btree
-  add_index "hours", ["date"], name: "index_hours_on_date", using: :btree
   add_index "hours", ["project_id"], name: "index_hours_on_project_id", using: :btree
+  add_index "hours", ["starting_time"], name: "index_hours_on_starting_time", using: :btree
   add_index "hours", ["user_id"], name: "index_hours_on_user_id", using: :btree
-
-  create_table "mileages", force: :cascade do |t|
-    t.integer  "project_id",                 null: false
-    t.integer  "user_id",                    null: false
-    t.integer  "value",                      null: false
-    t.date     "date",                       null: false
-    t.boolean  "billed",     default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "mileages", ["billed"], name: "index_mileages_on_billed", using: :btree
-  add_index "mileages", ["date"], name: "index_mileages_on_date", using: :btree
-  add_index "mileages", ["project_id"], name: "index_mileages_on_project_id", using: :btree
-  add_index "mileages", ["user_id"], name: "index_mileages_on_user_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.string   "name",        default: "",    null: false

@@ -43,19 +43,19 @@ module Hours
     # Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding
     # time zone names. Default is UTC.
-    # config.time_zone = 'Central Time (US & Canada)'
+    config.time_zone = 'Rome'
 
     # Don't force available locales, i.e. in case an unsupported locale is passed
     # just silently switch to the default language (:en) instead of throwing
     # an error.
     I18n.config.enforce_available_locales = false
-    I18n.config.available_locales = [:en, :nl, :'pt-BR', :pl]
+    I18n.config.available_locales = [:en, :it]
 
     # The default locale is :en and all translations
     # from config/locales/*.rb,yml are auto loaded
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales',
     #                                              '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    config.i18n.default_locale = :it
     config.secret_token = ENV["SECRET_TOKEN"]
     config.active_record.raise_in_transactional_callbacks = true
   end
