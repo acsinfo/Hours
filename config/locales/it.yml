@@ -47,7 +47,7 @@ it:
     password: Password
     repeat_password: Conferma password
     subdomain: Sottodominio
-    warning: Eliminando il tuo account cancellerai i dati di tutti gli utenti per il sottodominio %{subdomain}. 
+    warning: Eliminando il tuo account cancellerai i dati di tutti gli utenti per il sottodominio %{subdomain}.
       L'azione non può essere annullata.
   archives:
     index:
@@ -68,6 +68,10 @@ it:
             subdomain:
               invalid_characters: contiene caratteri non validi
               restricted: il sottodominio fornito non può essere utilizzato
+        user:
+          attributes:
+            email:
+              invalid_domain: deve essere un indirizzo aziendale
         category:
           attributes:
             name:
@@ -184,9 +188,9 @@ it:
       confirm_password: Conferma il mio account
       salutation: Benvenuto %{email}!
     reset_password:
-      info_text: La tua password non verrà cambiata finchè non accedi al link qui sopra e ne crei 
+      info_text: La tua password non verrà cambiata finchè non accedi al link qui sopra e ne crei
         una nnuova.
-      requested_link: Qualcuno ha richiesto un link per cambiare la tua password. Puoi farlo attraverso 
+      requested_link: Qualcuno ha richiesto un link per cambiare la tua password. Puoi farlo attraverso
         il link qui sotto.
       salutation: Ciao %{email} !
       wrong_mail: Se non l'hai richiesto, ignora questa mail.
@@ -264,11 +268,11 @@ it:
         update: Aggiorna Cliente
   info:
     here: qui
-    no_categories_html: Sembra che tu non abbia ancora definito nessuna categoria, puoi definirne 
+    no_categories_html: Sembra che tu non abbia ancora definito nessuna categoria, puoi definirne
       una %{categories_path}.
-    no_projects_html: Sembra che tu non abbia ancora definito nessun progetto, puoi definirne 
+    no_projects_html: Sembra che tu non abbia ancora definito nessun progetto, puoi definirne
       uno %{new_project_path}.
-    no_billable_projects_html: Sembra che tu non abbia ancora definito nessun progetto fatturabile, puoi definirne 
+    no_billable_projects_html: Sembra che tu non abbia ancora definito nessun progetto fatturabile, puoi definirne
       uno %{new_project_path}.
     no_billable_entries_html: Sembra che nessuna registrazione soddisfi i requisiti.
   invalid_date: La data indicata non è valida

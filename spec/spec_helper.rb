@@ -4,6 +4,7 @@ if ENV["COVERAGE"]
 end
 
 ENV["RAILS_ENV"] = "test"
+ENV["ALLOWED_DOMAINS"] = "example.com"
 
 require File.expand_path("../../config/environment", __FILE__)
 
