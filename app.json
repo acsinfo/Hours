@@ -10,7 +10,8 @@
     "SMTP_ADDRESS": "smtp.mailgun.org",
     "SMTP_DOMAIN": "domain",
     "SMTP_PASSWORD": "MailGun password",
-    "SMTP_USERNAME": "MailGun username"
+    "SMTP_USERNAME": "MailGun username",
+    "ALLOWED_DOMAINS": "example.com"
   },
   "scripts": {
     "postdeploy": "bundle exec rake db:migrate"
@@ -19,6 +20,5 @@
     "heroku-postgresql",
     "memcachier",
     "papertrail",
-    "mailgun"
   ]
 }

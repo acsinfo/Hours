@@ -45,6 +45,10 @@ class User < ActiveRecord::Base
          :invitable
 
   validates_presence_of :first_name, :last_name
+  validates :email, format: {
+                      with: /\A[A-Z0-9._%a-z\-]+@(#{ENV["ALLOWED_DOMAINS"]})\Z/,
+                      message: :invalid_domain
+                    }
 
   has_one :account, foreign_key: "owner_id", inverse_of: :owner
   belongs_to :organization, class_name: "Account", inverse_of: :users

@@ -18,7 +18,7 @@ describe Signup do
     {
       first_name: overrides[:first_name] || "John",
       last_name: "Zoidberg",
-      email: "zoidberg@planetexpress.co.uk",
+      email: "zoidberg@example.com",
       password: "whoop whoop whoop",
       password_confirmation: "whoop whoop whoop",
       subdomain: "whynotzoidberg"
