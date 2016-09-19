@@ -74,8 +74,7 @@ Hours::Application.configure do
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = SMTP_SETTINGS
-  config.action_mailer.default_url_options = { host: SMTP_SETTINGS[:domain] }
-
+  config.action_mailer.default_url_options = { host:  ENV["APP_DOMAIN"] }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).

@@ -72,6 +72,8 @@ it:
           attributes:
             email:
               invalid_domain: deve essere un indirizzo aziendale
+            password_confirmation:
+              confirmation: non corrispondente
         category:
           attributes:
             name:
@@ -185,7 +187,7 @@ it:
         other: "%{count} secondi"
   email:
     confirmation:
-      confirmation_text: Qualcuno ti ha invitato ad utilizzare Hours, puoi accettare l'invito attraverso il link qui sotto.
+      confirmation_text: Hai creato con successo un nuovo sottodominio in Hours, ora devi confermare il tuo account attraverso il link qui sotto.
       confirm_password: Conferma il mio account
       salutation: Benvenuto %{email}!
     reset_password:

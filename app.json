@@ -11,7 +11,8 @@
     "SMTP_DOMAIN": "domain",
     "SMTP_PASSWORD": "MailGun password",
     "SMTP_USERNAME": "MailGun username",
-    "ALLOWED_DOMAINS": "example.com"
+    "ALLOWED_DOMAINS": "example.com",
+    "APP_DOMAIN": "example.com"
   },
   "scripts": {
     "postdeploy": "bundle exec rake db:migrate"
