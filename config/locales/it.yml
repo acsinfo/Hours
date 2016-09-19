@@ -368,7 +368,7 @@ it:
       long: "%d/%m/%Y %H:%M"
   titles:
     activities: Attività
-    application: Ore
+    application: Hours
     accounts:
       edit: Modifica Account
     archives:
