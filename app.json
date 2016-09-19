@@ -19,6 +19,5 @@
     "heroku-postgresql",
     "memcachier",
     "papertrail",
-    "mailgun"
   ]
 }
