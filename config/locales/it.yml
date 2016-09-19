@@ -72,6 +72,8 @@ it:
           attributes:
             email:
               invalid_domain: deve essere un indirizzo aziendale
+            password_confirmation:
+              confirmation: non corrispondente
         category:
           attributes:
             name:

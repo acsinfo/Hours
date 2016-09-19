@@ -72,6 +72,8 @@ en:
           attributes:
             email:
               invalid_domain: must be a company address
+            password_confirmation:
+              confirmation: does not match
   back: Back
   billables:
     billable_entries: Billable Entries
