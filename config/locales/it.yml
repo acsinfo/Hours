@@ -225,6 +225,7 @@ it:
   entry_filters:
     title: Filtri
     keywords: Parole chiave
+    keywords_hint: Parole chiave separate da spazio
     clients: Tutti i clienti
     projects: Tutti i progetti
     users: Tutti gli utenti

@@ -121,7 +121,7 @@ describe Hour do
 
   describe "#search_by_description" do
     before do
-      @entry_1 = create(:hour, description: "protocol LVP1000")
+      @entry_1 = create(:hour, description: "protocol LVP1000 shipping")
       @entry_2 = create(:hour, description: "protocol ASP1000")
     end
 
@@ -146,6 +146,11 @@ describe Hour do
     it "does not filter by substring" do
       entries = Hour.search_by_description("ASP")
       expect(entries).to_not include(@entry_2)
+    end
+
+    it "finds matches in non-consecutive words" do
+      entries = Hour.search_by_description("protocol shipping")
+      expect(entries).to include(@entry_1)
     end
   end
 end

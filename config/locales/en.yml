@@ -157,6 +157,7 @@ en:
   entry_filters:
     title: Filters
     keywords: Keywords
+    keywords_hint: Keywords separated by space
     clients: All Clients
     projects: All Projects
     users: All Users
