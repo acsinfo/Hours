@@ -156,6 +156,7 @@ en:
   entry_failed: Something went wrong saving your entry
   entry_filters:
     title: Filters
+    keywords: Keywords
     clients: All Clients
     projects: All Projects
     users: All Users

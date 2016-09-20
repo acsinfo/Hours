@@ -224,6 +224,7 @@ it:
   entry_failed: Qualcosa è andato storto durante il salvataggio della tua registrazione
   entry_filters:
     title: Filtri
+    keywords: Parole chiave
     clients: Tutti i clienti
     projects: Tutti i progetti
     users: Tutti gli utenti

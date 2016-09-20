@@ -50,6 +50,10 @@ class EntryQuery
       joins(:project).where("archived = ?", param)
     end
 
+    def search_keywords(param)
+      search_by_description(param)
+    end
+
     def self.set(entry_type)
       @entry_type = entry_type
     end

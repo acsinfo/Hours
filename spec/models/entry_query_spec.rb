@@ -2,7 +2,7 @@ describe EntryQuery do
   let(:client) { create(:client) }
   let(:project) { create(:project, archived: true, client: client) }
   let!(:hour) do
-    create(:hour, project: project, starting_time: 20.days.ago)
+    create(:hour, project: project, starting_time: 20.days.ago, description: "protocol LVP1000")
   end
   let!(:hour2) { create(:hour, starting_time: 10.days.ago) }
   let(:params) { {} }
@@ -26,6 +26,10 @@ describe EntryQuery do
 
     it "filters the entries on archived" do
       expect(hours_filter(archived: true).count).to eq(1)
+    end
+
+    it "filters the entries on search keywords" do
+      expect(hours_filter(search_keywords: "LVP1000").count).to eq(1)
     end
 
     it "filters on all params" do

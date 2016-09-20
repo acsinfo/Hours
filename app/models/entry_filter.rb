@@ -2,6 +2,7 @@ class EntryFilter
   include ActiveModel::Model
 
   KEYS = [
+    :search_keywords,
     :client_id,
     :project_id,
     :user,
