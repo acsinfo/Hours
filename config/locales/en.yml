@@ -108,7 +108,6 @@ en:
   client:
     form:
       description: Description
-      logo: Logo
       name: Name
     edit: Edit
   client_created: Client successfully created

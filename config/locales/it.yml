@@ -140,7 +140,6 @@ it:
     edit: Modifica
     form:
       description: Descrizione
-      logo: Logo
       name: Nome
   client_created: Cliente creato con successo
   client_updated: Cliente aggiornato con successo
