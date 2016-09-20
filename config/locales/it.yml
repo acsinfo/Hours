@@ -230,13 +230,6 @@ it:
     date_format_hint: gg/mm/aaaa
     from_date_label: Da
     to_date_label: A
-    billed_label: Fatturato o non
-    billed: Fatturato
-    billable: Fatturabile
-    not_billed: Non fatturato
-    not_billable: Non fatturabile
-    billed_empty: Fatturato o non
-    billable_empty: Fatturabile o non
     archived_empty: Archiviato e non archiviato
     archived: Archiviato
     not_archived: Non archiviato

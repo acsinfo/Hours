@@ -5,11 +5,9 @@ class EntryFilter
     :client_id,
     :project_id,
     :user,
-    :billed,
     :to_date,
     :from_date,
-    :archived,
-    :billable
+    :archived
   ].freeze
 
   attr_accessor(*KEYS)
@@ -20,20 +18,6 @@ class EntryFilter
     @clients = Client.by_name
     @projects = Project.by_name
     @users = User.by_name
-  end
-
-  def billed_options
-    [
-      [I18n.t("entry_filters.not_billed"), false],
-      [I18n.t("entry_filters.billed"), true]
-    ]
-  end
-
-  def billable_options
-    [
-      [I18n.t("entry_filters.not_billable"), false],
-      [I18n.t("entry_filters.billable"), true]
-    ]
   end
 
   def archived_options

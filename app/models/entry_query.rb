@@ -38,10 +38,6 @@ class EntryQuery
       where(user_id: param)
     end
 
-    def billed(param)
-      where(billed: param)
-    end
-
     def from_date(param)
       where("#{Scopes.get}.starting_time >= ?", Date.parse(param.to_s))
     end
@@ -52,10 +48,6 @@ class EntryQuery
 
     def archived(param)
       joins(:project).where("archived = ?", param)
-    end
-
-    def billable(param)
-      joins(:project).where("billable = ?", param)
     end
 
     def self.set(entry_type)

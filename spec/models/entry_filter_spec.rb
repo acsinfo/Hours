@@ -22,13 +22,4 @@ describe EntryFilter do
 
     expect(filter.projects).to eq(Project.by_name)
   end
-
-  it "billed_options" do
-    filter = EntryFilter.new
-
-    expect(filter.billed_options).to eq([
-      [I18n.t("entry_filters.not_billed"), false],
-      [I18n.t("entry_filters.billed"), true]
-    ])
-  end
 end
