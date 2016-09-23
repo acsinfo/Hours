@@ -36,12 +36,12 @@ gem "twitter-text" # hashtag parsing
 gem "jquery-atwho-rails", "~> 1.3.2" # autocomplete
 gem "haml-rails"
 gem "audited-activerecord", "~> 4.0"
-gem "paperclip", "4.2.4"
 gem "aws-sdk", "< 2.0"
 gem "redcarpet"
 gem "holidays"
 gem "sprockets-rails", "~> 2.3"
 gem "brakeman"
+gem "pg_search"
 
 source "https://rails-assets.org" do
   gem "rails-assets-chartjs"

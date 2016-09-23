@@ -108,7 +108,6 @@ en:
   client:
     form:
       description: Description
-      logo: Logo
       name: Name
     edit: Edit
   client_created: Client successfully created
@@ -156,19 +155,14 @@ en:
   entry_failed: Something went wrong saving your entry
   entry_filters:
     title: Filters
+    keywords: Keywords
+    keywords_hint: Keywords separated by space
     clients: All Clients
     projects: All Projects
     users: All Users
     date_format_hint: dd/mm/yyyy
     from_date_label: From date
     to_date_label: To date
-    billed_label: Billed or not
-    billed: Billed
-    billable: Billable
-    not_billed: Not billed
-    not_billable: Not billable
-    billed_empty: Billed or not
-    billable_empty: Billable or not
     archived_empty: Archived and Unarchived
     archived: Archived
     not_archived: Not Archived
@@ -321,3 +315,10 @@ en:
     update:
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and click on the confirm link to finalize confirming your new email address."
       updated: You updated your account successfully.
+  views:
+    pagination:
+      first: First
+      previous: Previous
+      next: Next
+      last: Last
+      truncate: "&hellip;"

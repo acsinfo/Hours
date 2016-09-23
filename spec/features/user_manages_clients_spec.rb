@@ -60,7 +60,7 @@ feature "User manages clients" do
     expect(page).to have_content "Please review the problems below"
   end
 
-  scenario "can view the client and the description and the logo" do
+  scenario "can view the client and the description" do
     client = create(:client)
 
     visit client_url(client, subdomain: subdomain)
