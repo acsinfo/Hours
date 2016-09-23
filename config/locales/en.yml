@@ -316,3 +316,10 @@ en:
     update:
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and click on the confirm link to finalize confirming your new email address."
       updated: You updated your account successfully.
+  views:
+    pagination:
+      first: First
+      previous: Previous
+      next: Next
+      last: Last
+      truncate: "&hellip;"
