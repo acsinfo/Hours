@@ -118,4 +118,39 @@ describe Hour do
       expect(entries).to include(entry_3, entry_4, entry_5)
     end
   end
+
+  describe "#search_by_description" do
+    before do
+      @entry_1 = create(:hour, description: "protocol LVP1000 shipping")
+      @entry_2 = create(:hour, description: "protocol ASP1000")
+    end
+
+    it "filters entries by search key" do
+      entries = Hour.search_by_description("ASP1000")
+      expect(entries).to_not include(@entry_1)
+      expect(entries).to include(@entry_2)
+    end
+  
+    it "retrieves all the entries that match search key" do
+      entries = Hour.search_by_description("protocol")
+      expect(entries).to include(@entry_1)
+      expect(entries).to include(@entry_2)
+    end
+
+    it "is not case sensitive" do
+      entries = Hour.search_by_description("asp1000")
+      expect(entries).to_not include(@entry_1)
+      expect(entries).to include(@entry_2)
+    end
+
+    it "does not filter by substring" do
+      entries = Hour.search_by_description("ASP")
+      expect(entries).to_not include(@entry_2)
+    end
+
+    it "finds matches in non-consecutive words" do
+      entries = Hour.search_by_description("protocol shipping")
+      expect(entries).to include(@entry_1)
+    end
+  end
 end

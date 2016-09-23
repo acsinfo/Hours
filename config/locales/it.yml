@@ -224,19 +224,14 @@ it:
   entry_failed: Qualcosa è andato storto durante il salvataggio della tua registrazione
   entry_filters:
     title: Filtri
+    keywords: Parole chiave
+    keywords_hint: Parole chiave separate da spazio
     clients: Tutti i clienti
     projects: Tutti i progetti
     users: Tutti gli utenti
     date_format_hint: gg/mm/aaaa
     from_date_label: Da
     to_date_label: A
-    billed_label: Fatturato o non
-    billed: Fatturato
-    billable: Fatturabile
-    not_billed: Non fatturato
-    not_billable: Non fatturabile
-    billed_empty: Fatturato o non
-    billable_empty: Fatturabile o non
     archived_empty: Archiviato e non archiviato
     archived: Archiviato
     not_archived: Non archiviato

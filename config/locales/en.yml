@@ -156,19 +156,14 @@ en:
   entry_failed: Something went wrong saving your entry
   entry_filters:
     title: Filters
+    keywords: Keywords
+    keywords_hint: Keywords separated by space
     clients: All Clients
     projects: All Projects
     users: All Users
     date_format_hint: dd/mm/yyyy
     from_date_label: From date
     to_date_label: To date
-    billed_label: Billed or not
-    billed: Billed
-    billable: Billable
-    not_billed: Not billed
-    not_billable: Not billable
-    billed_empty: Billed or not
-    billable_empty: Billable or not
     archived_empty: Archived and Unarchived
     archived: Archived
     not_archived: Not Archived
