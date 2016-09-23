@@ -405,3 +405,10 @@ it:
     update:
       update_needs_confirmation: "Hai aggiornato il tuo account con successo, ma è necessario verificare il tuo nuovo indirizzo mail. Per cortesia verifica la tua mail e clicca sul link di conferma per abilitare il nuovo indirizzo mail."
       updated: Account aggiornato con successo.
+  views:
+    pagination:
+      first: Prima
+      previous: Precedente
+      next: Successiva
+      last: Ultima
+      truncate: "&hellip;"
