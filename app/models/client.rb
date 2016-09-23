@@ -5,10 +5,6 @@
 #  id                :integer          not null, primary key
 #  name              :string           default(""), not null
 #  description       :string           default("")
-#  logo_file_name    :string
-#  logo_content_type :string
-#  logo_file_size    :integer
-#  logo_updated_at   :datetime
 #  created_at        :datetime
 #  updated_at        :datetime
 #
@@ -21,14 +17,4 @@ class Client < ActiveRecord::Base
   has_many :projects
 
   has_many :hours, through: :projects
-
-  has_attached_file :logo,
-                    styles: { original: "100x100#" },
-                    default_url: "",
-                    s3_protocol: ""
-  validates_attachment_content_type :logo, content_type: /\Aimage\/.*\Z/
-
-  def logo_url
-    logo.url(:original)
-  end
 end
