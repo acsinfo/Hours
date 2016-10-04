@@ -34,6 +34,7 @@ class Hour < Entry
     where.not("projects.client_id" => nil).joins(:project)
   }
   scope :open_per_user, ->(user_id) { where(user_id: user_id, ending_time: nil) }
+  scope :by_last_created_per_user, ->(user_id) { where(user_id: user_id).order("created_at DESC") }
 
   before_save :set_tags_from_description
 

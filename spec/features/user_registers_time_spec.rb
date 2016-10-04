@@ -1,6 +1,7 @@
 feature "User registers time" do
   let(:subdomain) { generate(:subdomain) }
   let(:user) { build(:user) }
+  let(:other_user) { build(:user) }
 
   before(:each) do
     create(:account_with_schema, subdomain: subdomain, owner: user)
@@ -13,6 +14,15 @@ feature "User registers time" do
     create(:category, name: "Consultancy")
 
     visit root_url(subdomain: subdomain)
+  end
+
+  context "activity feed" do
+    scenario "is scoped by user" do
+      create(:hour, user: user)
+      create(:hour, user: other_user)
+      visit root_url(subdomain: subdomain)
+      expect(page).to have_selector('.activity-feed li', count: 1)
+    end
   end
 
   context "without taggings" do
@@ -64,7 +74,7 @@ feature "User registers time" do
 
     scenario "complete the entry" do
       expect(find_field("hour_starting_time").value).to eq(@starting_time)
-      
+
       ending_time = I18n.l(DateTime.now)
       fill_in "hour_starting_time", with: ending_time
       click_button (I18n.t("helpers.submit.update"))
