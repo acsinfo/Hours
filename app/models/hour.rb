@@ -16,6 +16,9 @@
 #
 
 class Hour < Entry
+  include PgSearch
+  pg_search_scope :search_by_description, :against => :description
+
   audited allow_mass_assignment: true
 
   belongs_to :category
