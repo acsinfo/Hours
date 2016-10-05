@@ -2,7 +2,11 @@ include TimeSeriesInitializer
 
 class UsersController < ApplicationController
   def show
-    @time_series = time_series_for(resource)
+    if current_user.role == 'power-user' || current_user == resource
+      @time_series = time_series_for(resource)
+    else
+      redirect_to root_path, notice: t("restricted")
+    end
   end
 
   def index
