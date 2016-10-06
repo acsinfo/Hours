@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.unarchived.by_last_updated.page(params[:page]).per(7)
     @hours_entry = Hour.open_per_user(current_user.id).first || Hour.new
-    @activities = Hour.by_last_created_at.limit(30)
+    @activities = Hour.by_last_created_per_user(current_user.id).limit(30)
   end
 
   def show

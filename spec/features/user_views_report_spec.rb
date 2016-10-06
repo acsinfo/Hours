@@ -1,40 +1,66 @@
 feature "User Report" do
   let(:subdomain) { generate(:subdomain) }
-  let(:user) { build(:user) }
+  let(:user) { build(:user, role: 'user')  }
+  let(:power_user) { build(:user, role: 'power-user') }
 
   before(:each) do
     create(:account_with_schema, subdomain: subdomain, owner: user)
-    sign_in_user(user, subdomain: subdomain)
+    add(power_user, subdomain)
   end
 
-  scenario "views all entries" do
-    hour = create(:hour, value: 1000)
-    visit reports_url(subdomain: subdomain)
+  context "simple user" do
+    before(:each) do
+      sign_in_user(user, subdomain: subdomain)
+    end
 
-    expect(page).to have_content(hour.value)
-    expect(page).to have_content(I18n.t("entries.download_csv"))
-    expect(page).to have_selector(".info-row")
-  end
-
-  context "invalid from date" do
-    scenario "an error message is displayed" do
+    scenario "views own entries" do
+      user_hour = create(:hour, user: user, value: 1000)
+      power_user_hour = create(:hour, user: power_user, value: 2000)
       visit reports_url(subdomain: subdomain)
 
-      fill_in "entry_filter_from_date", with: "99/02/2014"
-      click_button (I18n.t("billables.buttons.filter"))
+      expect(page).to have_content(user_hour.value)
+      expect(page).to have_no_content(power_user_hour.value)
+      expect(page).to have_content(I18n.t("entries.download_csv"))
+      expect(page).to have_selector(".info-row")
+    end
 
-      expect(page).to have_content (I18n.t("invalid_date"))
+    context "invalid from date" do
+      scenario "an error message is displayed" do
+        visit reports_url(subdomain: subdomain)
+
+        fill_in "entry_filter_from_date", with: "99/02/2014"
+        click_button (I18n.t("billables.buttons.filter"))
+
+        expect(page).to have_content (I18n.t("invalid_date"))
+      end
+    end
+
+    context "invalid to date" do
+      scenario "an error message is displayed" do
+        visit reports_url(subdomain: subdomain)
+
+        fill_in "entry_filter_to_date", with: "99/02/2014"
+        click_button (I18n.t("billables.buttons.filter"))
+
+        expect(page).to have_content (I18n.t("invalid_date"))
+      end
     end
   end
 
-  context "invalid to date" do
-    scenario "an error message is displayed" do
+  context "power user" do
+    before(:each) do
+      sign_in_user(power_user, subdomain: subdomain)
+    end
+
+    scenario "views own entries" do
+      user_hour = create(:hour, user: user, value: 1000)
+      power_user_hour = create(:hour, user: power_user, value: 2000)
       visit reports_url(subdomain: subdomain)
 
-      fill_in "entry_filter_to_date", with: "99/02/2014"
-      click_button (I18n.t("billables.buttons.filter"))
-
-      expect(page).to have_content (I18n.t("invalid_date"))
+      expect(page).to have_content(user_hour.value)
+      expect(page).to have_content(power_user_hour.value)
+      expect(page).to have_content(I18n.t("entries.download_csv"))
+      expect(page).to have_selector(".info-row")
     end
   end
 end

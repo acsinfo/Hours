@@ -31,7 +31,7 @@
 #  invited_by_id          :integer
 #  invited_by_type        :string
 #  invitations_count      :integer          default("0")
-#
+#  role                   :string
 
 class User < ActiveRecord::Base
   include Sluggable
@@ -57,6 +57,8 @@ class User < ActiveRecord::Base
 
   scope :by_name, -> { order("lower(last_name)") }
 
+  before_save :set_role
+
   def full_name
     "#{first_name} #{last_name}"
   end
@@ -74,5 +76,9 @@ class User < ActiveRecord::Base
 
   def acronyms
     first_name[0] + last_name[0]
+  end
+
+  def set_role
+    self.role ||= 'user'
   end
 end
