@@ -10,7 +10,7 @@ for internal time-tracking.
 Roadmap
 -------
 
-As we're using Hours we're constantly thinking of ways to improve it and we'd love to hear your thoughts!
+As we are using Hours we are constantly thinking of ways to improve it and we'd love to hear your thoughts!
 
 System Dependencies
 -------------------
