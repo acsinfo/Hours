@@ -49,6 +49,14 @@ class Hour < Entry
     EntryQuery.new(self.includes(includes).by_starting_time, params, "hours").filter
   end
 
+  def time
+    if ending_time
+      ending_time - starting_time
+    else
+      0
+    end
+  end
+
   private
 
   def set_tags_from_description

@@ -21,7 +21,7 @@
             %div.weekday= t("weekdays." + entry.ending_time.strftime('%A').downcase)
             = I18n.l(entry.ending_time)
         %td.project= link_to entry.project.name, entry.project
-        %td.hours.center= entry.value
+        %td.hours.center= distance_of_time_in_words(entry.time)
         %td.category.hide-for-mobile
           %span.color{:style => "background-color:#{entry.category.name.pastel_color};"}
           = entry.category.name
@@ -32,4 +32,3 @@
             = link_to t('entries.index.edit'), edit_hour_path(entry)
         %td.changes.right.hide-for-mobile
           = link_to t('entries.index.changes'), hour_audits_path(entry)
-

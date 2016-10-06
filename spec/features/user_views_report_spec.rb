@@ -14,12 +14,12 @@ feature "User Report" do
     end
 
     scenario "views own entries" do
-      user_hour = create(:hour, user: user, value: 1000)
-      power_user_hour = create(:hour, user: power_user, value: 2000)
+      user_hour = create(:hour, user: user, description: 'simple hour')
+      power_user_hour = create(:hour, user: power_user, description: 'power hour')
       visit reports_url(subdomain: subdomain)
 
-      expect(page).to have_content(user_hour.value)
-      expect(page).to have_no_content(power_user_hour.value)
+      expect(page).to have_content(user_hour.description)
+      expect(page).to have_no_content(power_user_hour.description)
       expect(page).to have_content(I18n.t("entries.download_csv"))
       expect(page).to have_selector(".info-row")
     end
@@ -53,12 +53,12 @@ feature "User Report" do
     end
 
     scenario "views own entries" do
-      user_hour = create(:hour, user: user, value: 1000)
-      power_user_hour = create(:hour, user: power_user, value: 2000)
+      user_hour = create(:hour, user: user, description: 'simple hour')
+      power_user_hour = create(:hour, user: power_user, description: 'power hour')
       visit reports_url(subdomain: subdomain)
 
-      expect(page).to have_content(user_hour.value)
-      expect(page).to have_content(power_user_hour.value)
+      expect(page).to have_content(user_hour.description)
+      expect(page).to have_content(power_user_hour.description)
       expect(page).to have_content(I18n.t("entries.download_csv"))
       expect(page).to have_selector(".info-row")
     end
