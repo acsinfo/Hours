@@ -215,7 +215,7 @@ it:
   entry_activity_html:
     zero: "%{user} ha lavorato meno di un'ora a %{category} su %{project}"
     one: "%{user} ha lavorato un'ora a %{category} su %{project}"
-    other: "%{user} ha lavorato %{count} ore a %{category} su %{project}"
+    other: "%{user} ha lavorato %{count} a %{category} su %{project}"
   entry_created:
     hours: Registrazione creata con successo
   entry_deleted:
