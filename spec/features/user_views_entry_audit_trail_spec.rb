@@ -41,19 +41,19 @@ feature "User views Entry Audit Trail" do
     end
   end
 
-  context "simple power-user" do
+  context "power user" do
     before(:each) do
       sign_in_user(power_user, subdomain: subdomain)
     end
 
     scenario "views own audit" do
-      visit user_entries_url(user, subdomain: subdomain)
-      expect(current_path).to eq "/users/#{user.slug}/entries"
+      visit user_entries_url(power_user, subdomain: subdomain)
+      expect(current_path).to eq "/users/#{power_user.slug}/entries"
     end
 
     scenario "views others audit" do
-      visit user_entries_url(power_user, subdomain: subdomain)
-      expect(current_path).to eq "/users/#{power_user.slug}/entries"
+      visit user_entries_url(user, subdomain: subdomain)
+      expect(current_path).to eq "/users/#{user.slug}/entries"
     end
   end
 
