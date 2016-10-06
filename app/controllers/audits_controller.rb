@@ -2,7 +2,11 @@ require "audit_history"
 
 class AuditsController < ApplicationController
   def index
-    @history = AuditHistory.new(audit_log)
+    if current_user.role == 'power-user' || (params.key?(:hour_id) && hour.user == current_user)
+      @history = AuditHistory.new(audit_log)
+    else
+      redirect_to root_path, notice: t("restricted")
+    end
   end
 
   private
@@ -16,8 +20,12 @@ class AuditsController < ApplicationController
     end
   end
 
+  def hour
+    Hour.find(params[:hour_id])
+  end
+
   def hour_log
-    Hour.find(params[:hour_id]).audits
+    hour.audits
   end
 
   def project_log

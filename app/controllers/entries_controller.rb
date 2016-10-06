@@ -5,15 +5,20 @@ class EntriesController < ApplicationController
 
   def index
     @user = User.find_by_slug(params[:user_id])
-    @hours_entries = @user.hours.by_starting_time.page(params[:hours_pages]).per(20)
 
-    respond_to do |format|
-      format.html { @hours_entries }
-      format.csv do
-        send_csv(
-          name: @user.name,
-          hours_entries: @user.hours.by_starting_time)
+    if current_user.role == 'power-user' || current_user == @user
+      @hours_entries = @user.hours.by_starting_time.page(params[:hours_pages]).per(20)
+
+      respond_to do |format|
+        format.html { @hours_entries }
+        format.csv do
+          send_csv(
+            name: @user.name,
+            hours_entries: @user.hours.by_starting_time)
+        end
       end
+    else
+      redirect_to root_path, notice: t("restricted")
     end
   end
 

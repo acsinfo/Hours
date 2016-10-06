@@ -22,7 +22,7 @@
             %td= link_to entry.project.name, entry.project
             %td.hide-for-mobile= entry.category.name
             %td.hide-for-mobile= link_to entry.project.client.name, entry.project.client if entry.project.client
-            %td= entry.value
+            %td= distance_of_time_in_words(entry.time)
             %td.description.hide-for-mobile= sanitize autolink_tags(entry.description)
 
     = paginate @hours_entries, param_name: :hours_pages

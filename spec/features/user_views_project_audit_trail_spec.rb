@@ -1,6 +1,6 @@
 feature "User views Project Audit Trail" do
   let(:subdomain) { generate(:subdomain) }
-  let(:user) { build(:user) }
+  let(:user) { build(:user, role: 'power-user') }
   let(:project) { create(:project) }
 
   before(:each) do

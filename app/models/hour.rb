@@ -37,6 +37,7 @@ class Hour < Entry
     where.not("projects.client_id" => nil).joins(:project)
   }
   scope :open_per_user, ->(user_id) { where(user_id: user_id, ending_time: nil) }
+  scope :by_last_created_per_user, ->(user_id) { where(user_id: user_id).order("created_at DESC") }
 
   before_save :set_tags_from_description
 
@@ -46,6 +47,14 @@ class Hour < Entry
 
   def self.query(params, includes = nil)
     EntryQuery.new(self.includes(includes).by_starting_time, params, "hours").filter
+  end
+
+  def time
+    if ending_time
+      ending_time - starting_time
+    else
+      0
+    end
   end
 
   private

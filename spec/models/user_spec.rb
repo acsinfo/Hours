@@ -49,6 +49,13 @@ describe User do
     it { should have_many :hours }
   end
 
+  describe "#set_role" do
+    it "is created with user role" do
+      user = create(:user)
+      expect(user.role).to eq("user")
+    end
+  end
+
   describe "#label" do
     it "returns the users full name" do
       user = create(:user, first_name: "Karel", last_name: "Appel")
